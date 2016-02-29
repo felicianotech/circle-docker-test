@@ -7,3 +7,5 @@ machine:
 test:
   override:
     - docker run ubuntu /bin/echo 'Hello world'
+  post:
+    - cp /var/log/upstart/docker.log $CIRCLE_ARTIFACTS/
