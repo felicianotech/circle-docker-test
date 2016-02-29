@@ -5,6 +5,7 @@ machine:
     #- sudo chmod +r $CIRCLE_ARTIFACTS/docker.log
 dependencies:
   override:
+    - docker run ubuntu /bin/echo 'Hello world'
     - exit 1
   post:
     - sudo cp /var/log/upstart/docker.log $CIRCLE_ARTIFACTS/
