@@ -3,10 +3,12 @@ machine:
     - docker
   post:
     #- sudo chmod +r $CIRCLE_ARTIFACTS/docker.log
-depenencies:
+dependencies:
   override:
-    - docker run ubuntu /bin/echo 'Hello world'
     - exit 1
   post:
     - sudo cp /var/log/upstart/docker.log $CIRCLE_ARTIFACTS/
     - sudo chmod +r $CIRCLE_ARTIFACTS/docker.log
+test:
+  ovveride:
+    - docker run ubuntu /bin/echo 'Hello world'
