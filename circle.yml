@@ -10,5 +10,5 @@ dependencies:
     - sudo cp /var/log/upstart/docker.log $CIRCLE_ARTIFACTS/
     - sudo chmod +r $CIRCLE_ARTIFACTS/docker.log
 test:
-  ovveride:
+  overide:
     - docker run ubuntu /bin/echo 'Hello world'
