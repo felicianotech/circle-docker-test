@@ -1,10 +1,12 @@
 general:
   artifacts:
-    - sudo chmod +r $CIRCLE_ARTIFACTS/docker.log
+    - sudo chmod +r /var/log/upstart/docker.log
     - /var/log/upstart/docker.log
 machine:
   services:
     - docker
+  post:
+    #- sudo chmod +r $CIRCLE_ARTIFACTS/docker.log
 test:
   override:
     - docker run ubuntu /bin/echo 'Hello world'
