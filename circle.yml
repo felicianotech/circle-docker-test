@@ -7,9 +7,9 @@ dependencies:
   override:
     - docker run ubuntu /bin/echo 'Hello world'
     - exit 1
-  post:
+test:
+  pre:
     - sudo cp /var/log/upstart/docker.log $CIRCLE_ARTIFACTS/
     - sudo chmod +r $CIRCLE_ARTIFACTS/docker.log
-test:
   override:
     - docker run ubuntu /bin/echo 'Hello world'
