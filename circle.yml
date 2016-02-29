@@ -9,3 +9,4 @@ test:
     - docker run ubuntu /bin/echo 'Hello world'
   post:
     - sudo cp /var/log/upstart/docker.log $CIRCLE_ARTIFACTS/
+    - sudo chmod +r $CIRCLE_ARTIFACTS/docker.log
