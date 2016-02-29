@@ -1,0 +1,9 @@
+general:
+  artifacts:
+    - /var/log/upstart/docker.log
+machine:
+  services:
+    - docker
+test:
+  override:
+    - docker run ubuntu /bin/echo 'Hello world'
