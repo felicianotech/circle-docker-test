@@ -1,6 +1,6 @@
 general:
   artifacts:
-    - /var/log/upstart/docker.log
+    #- /var/log/upstart/docker.log
 machine:
   services:
     - docker
@@ -8,4 +8,4 @@ test:
   override:
     - docker run ubuntu /bin/echo 'Hello world'
   post:
-    - cp /var/log/upstart/docker.log $CIRCLE_ARTIFACTS/
+    - sudo cp /var/log/upstart/docker.log $CIRCLE_ARTIFACTS/
