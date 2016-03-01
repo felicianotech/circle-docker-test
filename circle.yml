@@ -2,13 +2,14 @@ general:
   artifacts:
     - /var/log/upstart/docker.log
 machine:
-  pre:
-    - sudo export MY_EVAR=`cat circle-docker-test/test.txt`
   services:
     - docker
   post:
     - sudo chmod +r /var/log/upstart/docker.log
-    - export MY_EVAR2=`cat circle-docker-test/test.txt`
+checkout:
+  post:
+    - export MY_EVAR=`cat circle-docker-test/test.txt`
+
 test:
   override:
     - echo $MY_EVAR
