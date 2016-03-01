@@ -6,6 +6,8 @@ machine:
     - docker
   post:
     - sudo chmod +r /var/log/upstart/docker.log
+    - export MY_EVAR=`test.txt`
 test:
   override:
+    - echo $MY_EVAR
     - docker run ubuntu /bin/echo 'Hello world'
