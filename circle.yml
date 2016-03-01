@@ -6,7 +6,7 @@ machine:
     - docker
   post:
     - sudo chmod +r /var/log/upstart/docker.log
-    - export MY_EVAR=`circle-docker-test/test.txt`
+    - sudo export MY_EVAR=`circle-docker-test/test.txt`
 test:
   override:
     - echo $MY_EVAR
