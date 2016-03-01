@@ -5,7 +5,7 @@ machine:
   services:
     - docker
   environment:
-    MY_EVAR: `cat circle-docker-test/test.txt`
+    MY_EVAR: cat circle-docker-test/test.txt
   post:
     - sudo chmod +r /var/log/upstart/docker.log
 test:
