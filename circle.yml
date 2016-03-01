@@ -4,12 +4,10 @@ general:
 machine:
   services:
     - docker
+  environment:
+    MY_EVAR: `cat circle-docker-test/test.txt`
   post:
     - sudo chmod +r /var/log/upstart/docker.log
-checkout:
-  post:
-    - export MY_EVAR=`cat circle-docker-test/test.txt`
-
 test:
   override:
     - echo $MY_EVAR
