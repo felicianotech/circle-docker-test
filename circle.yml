@@ -1,13 +1,13 @@
 general:
   artifacts:
-    - /var/log/upstart/docker.log
+  #  - /var/log/upstart/docker.log
 machine:
   services:
-    - docker
+  #  - docker
   environment:
     MY_EVAR: cat circle-docker-test/test.txt
   post:
-    - sudo chmod +r /var/log/upstart/docker.log
+  #  - sudo chmod +r /var/log/upstart/docker.log
 test:
   override:
   #  - echo $MY_EVAR
