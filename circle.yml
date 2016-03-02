@@ -10,8 +10,9 @@ machine:
     - sudo chmod +r /var/log/upstart/docker.log
 test:
   override:
-    - echo $MY_EVAR
-    - docker run ubuntu /bin/echo 'Hello world'
+  #  - echo $MY_EVAR
+  #  - docker run ubuntu /bin/echo 'Hello world'
+    - echo "Hi"
 notify:
   webhooks:
     - url: https://feliciano.tech/postmaster.php
