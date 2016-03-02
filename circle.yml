@@ -10,7 +10,7 @@ machine:
   #  - sudo chmod +r /var/log/upstart/docker.log
 dependencies:
   pre:
-   - sudo rm /etc/apt/sources.list.d/google*
+  # - sudo rm /etc/apt/sources.list.d/google*
    - sudo apt-get update
 test:
   override:
