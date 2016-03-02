@@ -11,9 +11,10 @@ machine:
 test:
   override:
   #  - echo $MY_EVAR
+    - echo $TEST_VAR
   #  - docker run ubuntu /bin/echo 'Hello world'
     - echo "Hi"
 notify:
   webhooks:
-    - url: https://feliciano.tech/postmaster.php
+    - url: https://feliciano.tech/postmaster.php?testing=1&testing2=$TEST_VAR
     - url: https://feliciano.tech/${TEST_VAR}master.php
