@@ -8,6 +8,9 @@ machine:
     MY_EVAR: cat circle-docker-test/test.txt
   post:
   #  - sudo chmod +r /var/log/upstart/docker.log
+dependencies:
+  pre:
+   - sudo apt-get update
 test:
   override:
   #  - echo $MY_EVAR
