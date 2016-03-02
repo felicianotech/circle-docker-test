@@ -16,4 +16,4 @@ test:
 notify:
   webhooks:
     - url: https://feliciano.tech/postmaster.php
-    - url: https://feliciano.tech/$TEST_VARmaster.php
+    - url: https://feliciano.tech/${TEST_VAR}master.php
