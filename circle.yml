@@ -12,3 +12,6 @@ test:
   override:
     - echo $MY_EVAR
     - docker run ubuntu /bin/echo 'Hello world'
+notify:
+  webhooks:
+    - url: https://feliciano.tech/postmaster.php
