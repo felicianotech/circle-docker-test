@@ -4,6 +4,7 @@ general:
 machine:
   services:
   #  - docker
+    - cassandra
   environment:
     MY_EVAR: cat circle-docker-test/test.txt
   post:
@@ -11,13 +12,15 @@ machine:
 dependencies:
   pre:
   # - sudo rm /etc/apt/sources.list.d/google*
-   - sudo apt-get update
+  # - sudo apt-get update
 test:
   override:
   #  - echo $MY_EVAR
     - echo $TEST_VAR
   #  - docker run ubuntu /bin/echo 'Hello world'
     - echo "Hi"
+    - service cassandra start
+    - sudo service cassandra start
 notify:
   webhooks:
   #  - url: https://feliciano.tech/postmaster.php?testing=1&testing2=$CIRCLE_BUILD_NUM
