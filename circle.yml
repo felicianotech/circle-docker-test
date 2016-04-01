@@ -18,7 +18,7 @@ test:
   #  - echo $MY_EVAR
     - echo $TEST_VAR
   #  - docker run ubuntu /bin/echo 'Hello world'
-    - echo "Hi!"
+    - echo "Hi!!"
     #- service cassandra start
     #- sudo service cassandra start
 notify:
