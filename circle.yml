@@ -20,7 +20,7 @@ test:
   override:
   #  - echo $MY_EVAR
     - echo $TEST_VAR
-	- echo $PATH
+    - echo $PATH
   #  - docker run ubuntu /bin/echo 'Hello world'
     - php test.php
     #- service cassandra start
