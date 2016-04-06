@@ -8,7 +8,7 @@ machine:
   environment:
     MY_EVAR: cat circle-docker-test/test.txt
   php:
-    version: 7.0.3
+    version: 7.0.2
   post:
   #  - sudo chmod +r /var/log/upstart/docker.log
 dependencies:
