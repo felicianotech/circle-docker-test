@@ -7,7 +7,7 @@ machine:
   #  - cassandra
   environment:
     MY_EVAR: cat circle-docker-test/test.txt
-    PATH: "${PATH}:/usr/bin"
+    PATH: "${PATH}:${HOME}/.composer/vendor/bin"
   php:
     version: 7.0.3
   post:
