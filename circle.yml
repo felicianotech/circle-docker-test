@@ -4,9 +4,11 @@ general:
 machine:
   services:
   #  - docker
-    - cassandra
+  #  - cassandra
   environment:
     MY_EVAR: cat circle-docker-test/test.txt
+  php:
+    version: 7.0.4
   post:
   #  - sudo chmod +r /var/log/upstart/docker.log
 dependencies:
@@ -18,7 +20,7 @@ test:
   #  - echo $MY_EVAR
     - echo $TEST_VAR
   #  - docker run ubuntu /bin/echo 'Hello world'
-    - echo "Hi!!"
+    - php test.php
     #- service cassandra start
     #- sudo service cassandra start
 notify:
