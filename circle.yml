@@ -25,5 +25,5 @@ test:
     #- sudo service cassandra start
 notify:
   webhooks:
-  #  - url: https://feliciano.tech/postmaster.php?testing=1&testing2=$CIRCLE_BUILD_NUM
-    - url: https://feliciano.tech/${TEST_VAR}master.php
+    #- url: https://feliciano.tech/postmaster.php?testing=1&testing2=$CIRCLE_BUILD_NUM
+    #- url: https://feliciano.tech/${TEST_VAR}master.php
