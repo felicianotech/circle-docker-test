@@ -21,6 +21,7 @@ test:
   #  - echo $MY_EVAR
     - echo $TEST_VAR
     - echo $PATH
+    - sudo bash -c 'echo $DOCKER_CERTIFICATE > /etc/docker/certs.d/<myIpAddress>:5043/ca.crt'
   #  - docker run ubuntu /bin/echo 'Hello world'
     - php test.php
     #- service cassandra start
