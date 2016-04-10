@@ -8,8 +8,8 @@ machine:
   environment:
     MY_EVAR: cat circle-docker-test/test.txt
     PATH: "${PATH}:${HOME}/.composer/vendor/bin"
-  php:
-    version: 7.0.3
+  #php:
+  #  version: 7.0.3
   post:
   #  - sudo chmod +r /var/log/upstart/docker.log
 dependencies:
@@ -23,9 +23,8 @@ test:
     - echo $PATH
     - sudo bash -c 'echo CRAZZZY > /home/ubuntu/test.txt'
   #  - docker run ubuntu /bin/echo 'Hello world'
-    - php test.php
-    #- service cassandra start
-    #- sudo service cassandra start
+    #- php test.php
+    - kubectl --version
 notify:
   webhooks:
     #- url: https://feliciano.tech/postmaster.php?testing=1&testing2=$CIRCLE_BUILD_NUM
