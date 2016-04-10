@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Exit on any error
 set -e
 
-KUBERNETES_VERSION=41eb15bcff4f114e95788f1e3a5ad3645c4e53fd
+KUBERNETES_VERSION=v1.2.2
 
 # Exit if already installed
 if [[ -d ~/kubernetes ]]; then
@@ -14,8 +14,7 @@ else
 fi
 
 # Clone repo
-(cd ~ && git clone https://github.com/GoogleCloudPlatform/kubernetes.git)
-(cd ~/kubernetes && git reset --hard $KUBERNETES_VERSION)
+(cd ~ && git clone --branch=$KUBERNETES_VERSION --depth=1 https://github.com/kubernetes/kubernetes.git)
 
 # Build go source
 (cd ~/kubernetes && hack/build-go.sh)
