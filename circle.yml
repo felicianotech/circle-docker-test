@@ -1,12 +1,19 @@
 machine:
+  environment:
+    PROJECT_NAME=circle-ctl-test
+    CLUSTER_NAME=docker-hello-google-cluster
   services:
     - docker
     
 dependencies:
-  cache_directories:
-    - ~/kubernetes
   pre:
-    - ./ensure-kubernetes-installed.sh
+    - echo $CLIENT_SECRET | base64 --decode > ${HOME}/client-secret.json
+    - sudo /opt/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
+    - sudo /opt/google-cloud-sdk/bin/gcloud config set project $PROJECT_NAME
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update kubectl
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet config set container/cluster $CLUSTER_NAME
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet container clusters get-credentials $CLUSTER_NAME
     - docker build -t $EXTERNAL_REGISTRY_ENDPOINT/hello:$CIRCLE_SHA1 .
 
 test:
@@ -19,5 +26,9 @@ deployment:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS $EXTERNAL_REGISTRY_ENDPOINT
+      - docker push ${DOCKER_REGISTRY}/${CONTAINER1}:build${BUILD}
+      - docker push ${DOCKER_REGISTRY}/${CONTAINER1}:latest
+      - chmod +x ./deploy/deploy-service.sh && ./deploy/deploy-service.sh ${KUBECONTEXTQA} ${KUBEDEPLOYMENTDIR}
+
       - envsubst < .kubernetes_auth.template > ~/.kubernetes_auth
       - ./deploy.sh
