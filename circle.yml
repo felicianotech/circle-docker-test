@@ -33,7 +33,6 @@ deployment:
     commands:
       - sudo /opt/google-cloud-sdk/bin/gcloud docker push us.gcr.io/${PROJECT_NAME}/hello
       - sudo chown -R ubuntu:ubuntu /home/ubuntu/.kube
-      - kubectl run docker-hello-google --image=us.gcr.io/${PROJECT_NAME}/hello:latest --port=3000
       - kubectl expose deployment docker-hello-google --type="LoadBalancer"
       - kubectl rolling-update docker-hello-google --image=us.gcr.io/${PROJECT_NAME}/hello:latest
       #- chmod +x ./deploy/deploy-service.sh && ./deploy/deploy-service.sh ${KUBECONTEXTQA} ${KUBEDEPLOYMENTDIR}
