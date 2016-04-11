@@ -8,15 +8,15 @@ machine:
 
 dependencies:
   pre:
-    - gcloud --quiet components update
-    - gcloud --quiet components update kubectl
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update kubectl
     - echo $ACCT_AUTH | base64 --decode -i > ${HOME}/account-auth.json
-    - gcloud auth activate-service-account --key-file ${HOME}/account-auth.json
-    - gcloud config set project $PROJECT_NAME
-    - gcloud --quiet config set container/cluster $CLUSTER_NAME
+    - sudo /opt/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file ${HOME}/account-auth.json
+    - sudo /opt/google-cloud-sdk/bin/gcloud config set project $PROJECT_NAME
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet config set container/cluster $CLUSTER_NAME
     # Reading the zone from the env var is not working so we set it here
-    - gcloud config set compute/zone ${CLOUDSDK_COMPUTE_ZONE}
-    - gcloud --quiet container clusters get-credentials $CLUSTER_NAME
+    - sudo /opt/google-cloud-sdk/bin/gcloud config set compute/zone ${CLOUDSDK_COMPUTE_ZONE}
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet container clusters get-credentials $CLUSTER_NAME
     - docker build -t us.gcr.io/${PROJECT_NAME}/hello:$CIRCLE_SHA1 .
     # Using a separate tag command until Docker 1.10 is available on CircleCI, then we can use two tags in the build command above
     - docker tag us.gcr.io/${PROJECT_NAME}/hello:$CIRCLE_SHA1 us.gcr.io/${PROJECT_NAME}/hello:latest
@@ -31,8 +31,8 @@ deployment:
     #branch: master
     branch: kubernetes-1_2-update
     commands:
-      - gcloud docker push us.gcr.io/${PROJECT_NAME}/hello
-      - kubectl run docker-hello-google --image=us.gcr.io/${PROJECT_NAME}/hello:latest --port=3000
-      - kubectl expose deployment docker-hello-google --type="LoadBalancer"
-      - kubectl rolling-update docker-hellow-google --image=us.gcr.io/${PROJECT_NAME}/hello:latest
+      - sudo /opt/google-cloud-sdk/bin/gcloud docker push us.gcr.io/${PROJECT_NAME}/hello
+      - sudo /opt/google-cloud-sdk/bin/gcloud kubectl run docker-hello-google --image=us.gcr.io/${PROJECT_NAME}/hello:latest --port=3000
+      - sudo /opt/google-cloud-sdk/bin/gcloud kubectl expose deployment docker-hello-google --type="LoadBalancer"
+      - sudo kubectl rolling-update docker-hellow-google --image=us.gcr.io/${PROJECT_NAME}/hello:latest
       #- chmod +x ./deploy/deploy-service.sh && ./deploy/deploy-service.sh ${KUBECONTEXTQA} ${KUBEDEPLOYMENTDIR}
