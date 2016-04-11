@@ -28,9 +28,10 @@ test:
 
 deployment:
   prod:
-    branch: master
+    #branch: master
+    branch: kubernetes-1_2-update
     commands:
-      - gcloud docker push gcr.io/${PROJECT_NAME}/hello
+      - gcloud docker push gcr.io/${PROJECT_NAME}/hello:latest
       - chmod +x ./deploy/deploy-service.sh && ./deploy/deploy-service.sh ${KUBECONTEXTQA} ${KUBEDEPLOYMENTDIR}
 
       - envsubst < .kubernetes_auth.template > ~/.kubernetes_auth
