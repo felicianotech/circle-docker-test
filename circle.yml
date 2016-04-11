@@ -8,18 +8,18 @@ machine:
 
 dependencies:
   pre:
-    - echo $ACCT_AUTH | base64 --decode -i > ${HOME}/account-auth.json
-    - sudo /opt/google-cloud-sdk/bin/gcloud config set project $PROJECT_NAME
     - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update
-    - sudo /opt/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file ${HOME}/account-auth.json
     - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update kubectl
+    - echo $ACCT_AUTH | base64 --decode -i > ${HOME}/account-auth.json
+    - sudo /opt/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file ${HOME}/account-auth.json
+    - sudo /opt/google-cloud-sdk/bin/gcloud config set project $PROJECT_NAME
     - sudo /opt/google-cloud-sdk/bin/gcloud --quiet config set container/cluster $CLUSTER_NAME
-    # Reading the zone from the env var is not working so we pass it in the command
-    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet container clusters get-credentials $CLUSTER_NAME --zone=${CLOUDSDK_COMPUTE_ZONE}
+    # Reading the zone from the env var is not working so we set it here
+    - sudo /opt/google-cloud-sdk/bin/gcloud config set compute/zone ${CLOUDSDK_COMPUTE_ZONE}
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet container clusters get-credentials $CLUSTER_NAME
     - docker build -t us.gcr.io/${PROJECT_NAME}/hello:$CIRCLE_SHA1 .
     # Using a separate tag command until Docker 1.10 is available on CircleCI, then we can use two tags in the build command above
     - docker tag us.gcr.io/${PROJECT_NAME}/hello:$CIRCLE_SHA1 us.gcr.io/${PROJECT_NAME}/hello:latest
-    - docker images
 
 test:
   post:
@@ -32,7 +32,6 @@ deployment:
     branch: kubernetes-1_2-update
     commands:
       - sudo /opt/google-cloud-sdk/bin/gcloud docker push us.gcr.io/${PROJECT_NAME}/hello
-      - chmod +x ./deploy/deploy-service.sh && ./deploy/deploy-service.sh ${KUBECONTEXTQA} ${KUBEDEPLOYMENTDIR}
-
-      - envsubst < .kubernetes_auth.template > ~/.kubernetes_auth
-      - ./deploy.sh
+      - kubectl run docker-hello-google --image=us.gcr.io/${PROJECT_NAME}/hello:latest --port=3000
+      - kubectl expose deployment docker-hello-google --type="LoadBalancer"
+      #- chmod +x ./deploy/deploy-service.sh && ./deploy/deploy-service.sh ${KUBECONTEXTQA} ${KUBEDEPLOYMENTDIR}
