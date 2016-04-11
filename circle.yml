@@ -2,9 +2,10 @@ machine:
   environment:
     PROJECT_NAME: circle-ctl-test
     CLUSTER_NAME: docker-hello-google-cluster
+    CLOUDSDK_COMPUTE_ZONE: us-central1-f
   services:
     - docker
-    
+
 dependencies:
   pre:
     - echo $ACCT_AUTH | base64 --decode -i > ${HOME}/account-auth.json
