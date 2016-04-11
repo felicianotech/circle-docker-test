@@ -31,7 +31,7 @@ deployment:
     #branch: master
     branch: kubernetes-1_2-update
     commands:
-      - gcloud docker push gcr.io/${PROJECT_NAME}/hello:latest
+      - sudo /opt/google-cloud-sdk/bin/gcloud docker push gcr.io/${PROJECT_NAME}/hello:latest
       - chmod +x ./deploy/deploy-service.sh && ./deploy/deploy-service.sh ${KUBECONTEXTQA} ${KUBEDEPLOYMENTDIR}
 
       - envsubst < .kubernetes_auth.template > ~/.kubernetes_auth
