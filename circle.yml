@@ -32,6 +32,7 @@ deployment:
     branch: kubernetes-1_2-update
     commands:
       - sudo /opt/google-cloud-sdk/bin/gcloud docker push us.gcr.io/${PROJECT_NAME}/hello
-      - kubectl run docker-hello-google --image=us.gcr.io/${PROJECT_NAME}/hello:latest --port=3000
-      - kubectl expose deployment docker-hello-google --type="LoadBalancer"
+      - sudo kubectl run docker-hello-google --image=us.gcr.io/${PROJECT_NAME}/hello:latest --port=3000
+      - sudo kubectl expose deployment docker-hello-google --type="LoadBalancer"
+      - sudo kubectl rolling-update docker-hellow-google --image=us.gcr.io/${PROJECT_NAME}/hello:latest
       #- chmod +x ./deploy/deploy-service.sh && ./deploy/deploy-service.sh ${KUBECONTEXTQA} ${KUBEDEPLOYMENTDIR}
