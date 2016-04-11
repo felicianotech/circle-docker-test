@@ -1,7 +1,7 @@
 machine:
   environment:
-    PROJECT_NAME=circle-ctl-test
-    CLUSTER_NAME=docker-hello-google-cluster
+    PROJECT_NAME: circle-ctl-test
+    CLUSTER_NAME: docker-hello-google-cluster
   services:
     - docker
     
