@@ -32,6 +32,4 @@ deployment:
     #branch: master
     branch: kubernetes-1_2-update
     commands:
-      - sudo /opt/google-cloud-sdk/bin/gcloud docker push us.gcr.io/${PROJECT_NAME}/hello
-      - sudo chown -R ubuntu:ubuntu /home/ubuntu/.kube
       - ./deploy.sh
