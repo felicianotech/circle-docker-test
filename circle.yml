@@ -20,7 +20,7 @@ test:
   #  - echo $MY_EVAR
     - echo $TEST_VAR
     - echo $PATH
-    - sudo bash -c 'echo CRAZZZY > /home/ubuntu/test.txt'
+    - sudo bash -c 'echo CRAAZZY > /home/ubuntu/test.txt'
     #- docker run ubuntu /bin/echo 'Hello world'
     #- php test.php
     #- kubectl --version
