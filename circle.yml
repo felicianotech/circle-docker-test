@@ -9,6 +9,8 @@ machine:
     #MY_EVAR: cat circle-docker-test/test.txt
   #php:
   #  version: 7.0.3
+  java:
+    version: oraclejdk8
   post:
   #  - sudo chmod +r /var/log/upstart/docker.log
 dependencies:
@@ -16,7 +18,8 @@ dependencies:
     # Check which image we're using
     - lsb_release -a
     - wget https://wordpress.org/latest.zip
-    - sudo unzip -jo latest.zip -d /usr/lib/
+    - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.7.0/jre/lib/security/
+    - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.7.0/jre/lib/security/
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
 test:
