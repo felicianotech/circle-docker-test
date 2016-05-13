@@ -13,13 +13,13 @@ machine:
     version: oraclejdk8
   post:
   #  - sudo chmod +r /var/log/upstart/docker.log
+    - wget https://wordpress.org/latest.zip
+    - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.7.0/jre/lib/security/
+    - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.7.0/jre/lib/security/
 dependencies:
   pre:
     # Check which image we're using
     - lsb_release -a
-    - wget https://wordpress.org/latest.zip
-    - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.7.0/jre/lib/security/
-    - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.7.0/jre/lib/security/
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
 test:
