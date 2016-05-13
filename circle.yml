@@ -13,6 +13,8 @@ machine:
   #  - sudo chmod +r /var/log/upstart/docker.log
 dependencies:
   pre:
+    # Check which image we're using
+    - lsb_release -a
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
 test:
