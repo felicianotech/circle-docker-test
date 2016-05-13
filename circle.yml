@@ -17,7 +17,7 @@ machine:
     - ls -la circleci-testing
     - sudo wget https://wordpress.org/latest.zip
     - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.7.0/jre/lib/security/
-    - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.7.0/jre/lib/security/
+    - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.8.0/jre/lib/security/
 dependencies:
   pre:
     # Check which image we're using
