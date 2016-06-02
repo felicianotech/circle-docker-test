@@ -15,14 +15,11 @@ machine:
   #  - sudo chmod +r /var/log/upstart/docker.log
     - ls -la .
     - ls -la circleci-testing
-    - sudo wget https://wordpress.org/latest.zip
-    - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.7.0/jre/lib/security/
-    - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.8.0/jre/lib/security/
 dependencies:
   post:
     # Check which image we're using
     - lsb_release -a
-    - docker build -t go-sample-webapp:$CIRCLE_SHA1 .
+    - docker build -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
 test:
@@ -30,7 +27,6 @@ test:
   #  - echo $MY_EVAR
     - echo $TEST_VAR
     - echo $PATH
-    - sudo bash -c 'echo CRAAAAZZY > /home/ubuntu/test.txt'
     #- docker run ubuntu /bin/echo 'Hello world'
     #- php test.php
     #- kubectl --version
@@ -38,7 +34,7 @@ deployment:
   production:
     branch: master
     commands:
-      - docker push go-sample-webapp:$CIRCLE_SHA1
+      - docker push felicianotech/go-sample-webapp:$CIRCLE_SHA1
 notify:
   webhooks:
     #- url: https://feliciano.tech/postmaster.php?testing=1&testing2=$CIRCLE_BUILD_NUM
