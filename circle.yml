@@ -3,7 +3,7 @@ general:
   #  - /var/log/upstart/docker.log
 machine:
   services:
-  #  - docker
+    - docker
   #  - cassandra
   environment:
     #MY_EVAR: cat circle-docker-test/test.txt
