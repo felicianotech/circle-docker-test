@@ -19,9 +19,10 @@ machine:
     - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.7.0/jre/lib/security/
     - sudo unzip -jo latest.zip -d /usr/lib/jvm/jdk1.8.0/jre/lib/security/
 dependencies:
-  pre:
+  post:
     # Check which image we're using
     - lsb_release -a
+    - docker build -t go-sample-webapp:$CIRCLE_SHA1 .
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
 test:
@@ -33,6 +34,11 @@ test:
     #- docker run ubuntu /bin/echo 'Hello world'
     #- php test.php
     #- kubectl --version
+deployment:
+  production:
+    branch: master
+    commands:
+      - docker push go-sample-webapp:$CIRCLE_SHA1
 notify:
   webhooks:
     #- url: https://feliciano.tech/postmaster.php?testing=1&testing2=$CIRCLE_BUILD_NUM
