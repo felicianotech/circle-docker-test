@@ -35,7 +35,8 @@ deployment:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push felicianotech/go-sample-webapp:$CIRCLE_SHA1
+      #- docker push felicianotech/go-sample-webapp:$CIRCLE_SHA1
+      - ls -la
 notify:
   webhooks:
     #- url: https://feliciano.tech/postmaster.php?testing=1&testing2=$CIRCLE_BUILD_NUM
