@@ -8,9 +8,9 @@ machine:
   environment:
     #MY_EVAR: cat circle-docker-test/test.txt
   php:
-    version: 5.5.32
-  java:
-    version: oraclejdk8
+    version: 7.0.7
+  #java:
+  #  version: oraclejdk8
   post:
   #  - sudo chmod +r /var/log/upstart/docker.log
     - ls -la .
@@ -19,7 +19,7 @@ dependencies:
   post:
     # Check which image we're using
     - lsb_release -a
-    - docker build -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
+  #  - docker build -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
 test:
@@ -34,7 +34,7 @@ deployment:
   production:
     branch: master
     commands:
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+#      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       #- docker push felicianotech/go-sample-webapp:$CIRCLE_SHA1
       - ls -la
 notify:
