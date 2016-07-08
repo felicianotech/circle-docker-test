@@ -7,10 +7,10 @@ machine:
   #  - cassandra
   environment:
     #MY_EVAR: cat circle-docker-test/test.txt
-#  php:
-#    version: 7.0.7
-  java:
-    version: jdk1.8.0
+  php:
+    version: 7.0.4
+#  java:
+#    version: jdk1.8.0
   post:
   #  - sudo chmod +r /var/log/upstart/docker.log
     - ls -la .
