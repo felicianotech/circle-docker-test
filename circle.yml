@@ -30,6 +30,8 @@ test:
     #- docker run ubuntu /bin/echo 'Hello world'
     #- php test.php
     #- kubectl --version
+    - VARTEST=birthday echo $VARTEST
+    - VARTEST=birthday echo ${VARTEST}
 deployment:
   production:
     branch: master
