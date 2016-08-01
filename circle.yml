@@ -36,7 +36,7 @@ deployment:
     commands:
 #      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       #- docker push felicianotech/go-sample-webapp:$CIRCLE_SHA1
-      - VARTEST=birthday echo $VARTEST
+      - VARTEST=birthday echo ${VARTEST}
       - ls -la
 notify:
   webhooks:
