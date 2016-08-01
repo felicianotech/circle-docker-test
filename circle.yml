@@ -30,8 +30,6 @@ test:
     #- docker run ubuntu /bin/echo 'Hello world'
     #- php test.php
     #- kubectl --version
-    - VARTEST=birthday env | grep VARTEST
-    - VARTEST=birthday env | grep VARTEST
 deployment:
   production:
     branch: master
@@ -42,5 +40,3 @@ deployment:
       - ls -la
 notify:
   webhooks:
-    #- url: https://feliciano.tech/postmaster.php?testing=1&testing2=$CIRCLE_BUILD_NUM
-    #- url: https://feliciano.tech/${TEST_VAR}master.php
