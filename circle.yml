@@ -28,7 +28,7 @@ test:
     - echo $TEST_VAR
     - echo $PATH
     - sftp
-    -sftp --help
+    - sftp --help
     #- docker run ubuntu /bin/echo 'Hello world'
     #- php test.php
     #- kubectl --version
