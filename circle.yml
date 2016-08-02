@@ -27,6 +27,8 @@ test:
   #  - echo $MY_EVAR
     - echo $TEST_VAR
     - echo $PATH
+    - sftp
+    -sftp --help
     #- docker run ubuntu /bin/echo 'Hello world'
     #- php test.php
     #- kubectl --version
