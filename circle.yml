@@ -19,7 +19,7 @@ dependencies:
   post:
     # Check which image we're using
     - lsb_release -a
-    - docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
+#    - docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
 test:
