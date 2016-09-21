@@ -25,6 +25,7 @@ dependencies:
 test:
   override:
   #  - echo $MY_EVAR
+    - ps aux
     - echo $TEST_VAR
     - echo $PATH
     - sftp
