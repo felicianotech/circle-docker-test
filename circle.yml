@@ -8,7 +8,7 @@ machine:
   environment:
     #MY_EVAR: cat circle-docker-test/test.txt
   php:
-    version: 7.0.4
+    version: 7.0.7
 #  java:
 #    version: jdk1.8.0
   post:
@@ -25,6 +25,7 @@ dependencies:
 test:
   override:
   #  - echo $MY_EVAR
+    - ls -lah /opt/circleci/php/
     - ps aux
     - echo $TEST_VAR
     - echo $PATH
