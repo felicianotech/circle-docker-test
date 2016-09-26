@@ -32,5 +32,3 @@ deployment:
       #- docker push felicianotech/go-sample-webapp:$CIRCLE_SHA1
 #      - VARTEST=birthday env | grep VARTEST
       - ls -la
-notify:
-  webhooks:
