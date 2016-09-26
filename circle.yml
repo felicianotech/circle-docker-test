@@ -15,15 +15,6 @@ dependencies:
 #    - docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
-test:
-  override:
-  #  - echo $MY_EVAR
-    - ls -lah /opt/circleci/php/
-    - ps aux
-    - echo $TEST_VAR
-    - echo $PATH
-    #- php test.php
-    #- kubectl --version
 deployment:
   production:
     branch: master
