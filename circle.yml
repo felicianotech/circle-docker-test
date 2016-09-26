@@ -9,6 +9,8 @@ machine:
     #MY_EVAR: cat circle-docker-test/test.txt
   php:
     version: 7.0.7
+  python:
+    version: 3.4.4
 #  java:
 #    version: jdk1.8.0
   post:
