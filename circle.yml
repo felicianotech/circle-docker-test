@@ -7,7 +7,7 @@ machine:
 dependencies:
   post:
     - docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
-    - docker run felicianotech/go-sample-webapp:$CIRCLE_SHA1 "ping google.com"
+    - docker run -it felicianotech/go-sample-webapp:$CIRCLE_SHA1
     - docker ps
     - sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" felicianotech/go-sample-webapp:$CIRCLE_SHA1)" -- bash -c /opt/circleci-testing
   # - sudo rm /etc/apt/sources.list.d/google*
