@@ -10,7 +10,6 @@ dependencies:
   post:
     # Check which image we're using
     - ls -lah
-    - which go-ecs-ecr
     - ls -lah ~
     - docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
     - docker run felicianotech/go-sample-webapp:$CIRCLE_SHA1
