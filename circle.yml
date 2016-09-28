@@ -6,12 +6,10 @@ machine:
     - docker
   post:
     - pyenv global 3.5.0
-    - ls -la .
-    - ls -la circleci-testing
 dependencies:
   post:
     # Check which image we're using
-    - lsb_release -a
+    - ls -lah
     - docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
     - docker run felicianotech/go-sample-webapp:$CIRCLE_SHA1
     - docker exec felicianotech/go-sample-webapp:$CIRCLE_SHA1
