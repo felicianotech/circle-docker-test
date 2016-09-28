@@ -4,15 +4,13 @@ general:
 machine:
   services:
     - docker
-  post:
-    - pyenv global 3.5.0
 dependencies:
   post:
     # Check which image we're using
     - ls -lah
     - ls -lah ~
     - docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
-    - docker run felicianotech/go-sample-webapp:$CIRCLE_SHA1
+    - docker run -d felicianotech/go-sample-webapp:$CIRCLE_SHA1 tail -f /dev/null
     - sudo lxc-attach -n "$(docker inspect --format "{{.State.Pid}}" felicianotech/go-sample-webapp:$CIRCLE_SHA1)" -- bash -c /opt/circleci-testing
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
