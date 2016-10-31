@@ -2,6 +2,8 @@ general:
   artifacts:
   #  - /var/log/upstart/docker.log
 machine:
+  environment:
+    MY_TEMP_VAR: google
   services:
     - docker
 dependencies:
