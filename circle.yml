@@ -8,10 +8,11 @@ machine:
     - docker
 dependencies:
   post:
-    - docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
-    - docker run -i -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 /bin/bash
+    #- docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
+    - docker version
+      #- docker run -i -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 /bin/bash
     - docker ps
-    - sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" felicianotech/go-sample-webapp:$CIRCLE_SHA1)" -- bash -c /opt/circleci-testing
+      #- sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" felicianotech/go-sample-webapp:$CIRCLE_SHA1)" -- bash -c /opt/circleci-testing
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
 deployment:
