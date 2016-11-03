@@ -6,6 +6,8 @@ machine:
     MY_TEMP_VAR: google
   services:
     - docker
+  python:
+    version: 3.5.2
 dependencies:
   post:
     #- docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
@@ -15,6 +17,9 @@ dependencies:
       #- sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" felicianotech/go-sample-webapp:$CIRCLE_SHA1)" -- bash -c /opt/circleci-testing
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
+test:
+  post:
+    - test.py
 deployment:
   production:
     branch: master
