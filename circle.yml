@@ -7,7 +7,7 @@ machine:
   services:
     - docker
   python:
-    version: 3.6.1
+    version: 3.3.6
 dependencies:
   post:
     #- docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
