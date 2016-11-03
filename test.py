@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-#import _lzma
-import lzma
+import _lzma
 
 print "Hi"
