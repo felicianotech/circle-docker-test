@@ -19,7 +19,7 @@ dependencies:
   # - sudo apt-get update
 test:
   post:
-    - test.py
+    - ./test.py
 deployment:
   production:
     branch: master
