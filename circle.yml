@@ -11,10 +11,10 @@ machine:
     version: 3.3.6
 dependencies:
   pre:
-    - mkdir -p download
-    - test -e download/$GODIST || curl -o download/$GODIST https://storage.googleapis.com/golang/$GODIST
-    - sudo rm -rf /usr/local/go
-    - sudo tar -C /usr/local -xzf download/$GODIST
+    #- mkdir -p download
+    #- test -e download/$GODIST || curl -o download/$GODIST https://storage.googleapis.com/golang/$GODIST
+    #- sudo rm -rf /usr/local/go
+    #- sudo tar -C /usr/local -xzf download/$GODIST
   post:
     #- docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
     - docker version
@@ -23,7 +23,7 @@ dependencies:
       #- sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" felicianotech/go-sample-webapp:$CIRCLE_SHA1)" -- bash -c /opt/circleci-testing
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
-    - go --version
+    - go version
 test:
   post:
     - ./test.py
