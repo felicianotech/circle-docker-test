@@ -4,7 +4,7 @@ general:
 machine:
   environment:
     MY_TEMP_VAR: google
-    GODIST: "go1.7.linux-amd64.tar.gz"
+    GODIST: "go1.7.3.linux-amd64.tar.gz"
   services:
     - docker
   python:
