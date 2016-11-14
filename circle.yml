@@ -17,6 +17,7 @@ dependencies:
       #- sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" felicianotech/go-sample-webapp:$CIRCLE_SHA1)" -- bash -c /opt/circleci-testing
   # - sudo rm /etc/apt/sources.list.d/google*
   # - sudo apt-get update
+    - go --version
 test:
   post:
     - ./test.py
