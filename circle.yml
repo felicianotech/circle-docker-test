@@ -7,17 +7,17 @@ machine:
 dependencies:
   override:
     - echo "Override CircleCI Inference."
-  post:
+  cache_directories:
+    - ~/.yarn
+    - ~/.yarn-cache
+test:
+  pre:
     - yarn --version
     - |
       if [ "$(yarn --version)" != $YARN_VERSION ]; then
         curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
       fi
     - yarn install
-  cache_directories:
-    - ~/.yarn
-    - ~/.yarn-cache
-test:
   override:
     - yarn test
 deployment:
