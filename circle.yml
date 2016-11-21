@@ -1,6 +1,6 @@
 machine:
   pre:
-    - mkdir ~/.yarn-cache
+    #- mkdir ~/.yarn-cache
   environment:
     YARN_VERSION: 0.17.8
     PATH: "${PATH}:${HOME}/.yarn/bin"
@@ -15,13 +15,15 @@ dependencies:
         echo "The correct version of Yarn is already installed."
       fi
   override:
-    - yarn install
+    #- yarn install
+    - echo hi
   cache_directories:
-    - ~/.yarn
-    - ~/.yarn-cache
+    #- ~/.yarn
+    #- ~/.yarn-cache
 test:
   override:
-    - yarn test
+    #- yarn test
+    - echo Hi
 deployment:
   production:
     branch: master
