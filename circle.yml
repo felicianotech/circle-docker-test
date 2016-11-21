@@ -3,12 +3,13 @@ machine:
     - mkdir ~/yarn ~/.yarn-cache
   environment:
     YARN_VERSION: 0.17.7
+    PATH: "${PATH}:${HOME}/.yarn/bin"
 
 dependencies:
   pre:
     - ls -lah ~/.yarn/
     - |
-      if [[ ! -e ~/.yarn/bin/yarn || $(~/.yarn/bin/yarn --version) != "${YARN_VERSION}" ]]; then
+      if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
           echo "Versions don't match."
           echo "Yarn variable is ${YARN_VERSION}."
           echo "Current Yarn version is "
