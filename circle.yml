@@ -6,6 +6,7 @@ machine:
 
 dependencies:
   pre:
+    - ls -lah ~/.yarn/
     - |
       if [[ ! -x "~/.yarn/bin/yarn" || $(~/.yarn/bin/yarn --version) != "${YARN_VERSION}" ]]; then
         if [[ $(~/.yarn/bin/yarn --version) != "${YARN_VERSION}" ]]; then
