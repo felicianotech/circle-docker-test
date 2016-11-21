@@ -10,12 +10,11 @@ dependencies:
     - ls -lah ~/.yarn/
     - |
       if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
-          echo "Versions don't match."
-          echo "Yarn variable is ${YARN_VERSION}."
-          echo "Current Yarn version is "
-          yarn --version
+        echo "Download and install Yarn."
         rm -rf ~/.yarn
         curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+      else
+        echo "The correct version of Yarn is already installed."
       fi
     - yarn install
   override:
