@@ -5,12 +5,14 @@ machine:
     YARN_VERSION: 0.17.8
 
 dependencies:
-  pre:
+  override:
+    - echo "Override CircleCI Inference."
+  post:
+    - yarn --version
     - |
       if [ "$(yarn --version)" != $YARN_VERSION ]; then
         curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
       fi
-  override:
     - yarn install
   cache_directories:
     - ~/.yarn
