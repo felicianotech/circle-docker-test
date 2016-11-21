@@ -10,7 +10,8 @@ machine:
     YARN_VERSION: 0.17.8-1
 dependencies:
   pre:
-    - curl -o- -L https://yarnpkg.com/install.sh | bash
+    - echo $YARN_VERSION
+    - curl -o- -L https://yarnpkg.com/install.sh | bash -- --version $YARN_VERSION
   override:
     - yarn install
   cache_directories:
