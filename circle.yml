@@ -7,10 +7,9 @@ machine:
   environment:
     MY_TEMP_VAR: google
     GODIST: "go1.7.3.linux-amd64.tar.gz"
-    YARN_VERSION: 0.17.8-1
+    YARN_VERSION: 0.17.8
 dependencies:
   pre:
-    - echo $YARN_VERSION
     - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
   override:
     - yarn install
