@@ -7,7 +7,7 @@ machine:
 dependencies:
   pre:
     - |
-      if [[ ! -x "~/.yarn/bin/yarn" ]] && [[ "$(yarn --version)" -ne "${YARN_VERSION}" ]]; then
+      if [ ! -x "~/.yarn/bin/yarn" ] && [ "$(yarn --version)" != "${YARN_VERSION}" ]; then
         curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
       fi
     - yarn install
