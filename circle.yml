@@ -2,31 +2,22 @@ general:
   artifacts:
   #  - /var/log/upstart/docker.log
 machine:
+  pre:
+    - mkdir ~/.yarn-cache
   environment:
     MY_TEMP_VAR: google
     GODIST: "go1.7.3.linux-amd64.tar.gz"
-  services:
-    - docker
-  python:
-    version: 3.3.6
+    YARN_VERSION: 0.17.8-1
 dependencies:
   pre:
-    - mkdir -p download
-    - test -e download/$GODIST || curl -o download/$GODIST https://storage.googleapis.com/golang/$GODIST
-    - sudo rm -rf /usr/local/go
-    - sudo tar -C /usr/local -xzf download/$GODIST
-  post:
-    #- docker build --rm=false -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 .
-    - docker version
-      #- docker run -i -t felicianotech/go-sample-webapp:$CIRCLE_SHA1 /bin/bash
-    - docker ps
-      #- sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" felicianotech/go-sample-webapp:$CIRCLE_SHA1)" -- bash -c /opt/circleci-testing
-  # - sudo rm /etc/apt/sources.list.d/google*
-  # - sudo apt-get update
-    - go version
+    - curl -o- -L https://yarnpkg.com/install.sh --version $YARN_VERSION | bash
+  override:
+    - yarn install
+  cache_directories:
+    - ~/.yarn-cache
 test:
-  post:
-    - ./test.py
+  override:
+    - yarn test
 deployment:
   production:
     branch: master
