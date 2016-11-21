@@ -6,7 +6,11 @@ machine:
 
 dependencies:
   pre:
-    - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+    - |
+      if [ ! -x "~/.yarn/bin/yarn" || $(yarn --version) != "${YARN_VERSION}" ]; then
+        rm -rf ~/.yarn
+        curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+      fi
     - yarn install
   override:
     - echo "Override CircleCI Inference."
