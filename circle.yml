@@ -7,7 +7,7 @@ machine:
 dependencies:
   pre:
     - |
-      if [[ ! -x "~/.yarn/bin/yarn" ]] || [[ $(~/.yarn/bin/yarn --version) != "${YARN_VERSION}" ]]; then
+      if [[ ! -x "~/.yarn/bin/yarn" || $(~/.yarn/bin/yarn --version) != "${YARN_VERSION}" ]]; then
         if [[ $(~/.yarn/bin/yarn --version) != "${YARN_VERSION}" ]]; then
           echo "Versions don't match."
           echo "Yarn variable is ${YARN_VERSION}."
