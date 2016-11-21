@@ -7,23 +7,21 @@ machine:
 
 dependencies:
   pre:
-    #- |
-    #  if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
-    #    echo "Download and install Yarn."
-    #    curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
-    #  else
-    #    echo "The correct version of Yarn is already installed."
-    #  fi
+    - |
+      if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
+        echo "Download and install Yarn."
+        curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+      else
+        echo "The correct version of Yarn is already installed."
+      fi
   override:
-    #- yarn install
-    - echo hi
+    - yarn install
   cache_directories:
-    #- ~/.yarn
-    #- ~/.yarn-cache
+    - ~/.yarn
+    - ~/.yarn-cache
 test:
   override:
-    #- yarn test
-    - echo Hi
+    - yarn test
 deployment:
   production:
     branch: master
