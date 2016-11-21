@@ -1,11 +1,9 @@
-general:
-  artifacts:
-  #  - /var/log/upstart/docker.log
 machine:
   pre:
     - mkdir ~/yarn ~/.yarn-cache
   environment:
     YARN_VERSION: 0.17.8
+
 dependencies:
   pre:
     - |
