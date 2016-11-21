@@ -14,9 +14,8 @@ dependencies:
       else
         echo "The correct version of Yarn is already installed."
       fi
-    - yarn install
   override:
-    - echo "Override CircleCI Inference."
+    - yarn install
   cache_directories:
     - ~/.yarn
     - ~/.yarn-cache
@@ -27,4 +26,4 @@ deployment:
   production:
     branch: master
     commands:
-      - ls -la
+      - ls -lah
