@@ -1,6 +1,4 @@
 machine:
-  pre:
-    #- mkdir ~/.yarn-cache
   environment:
     YARN_VERSION: 0.17.8
     PATH: "${PATH}:${HOME}/.yarn/bin"
@@ -19,9 +17,11 @@ dependencies:
   cache_directories:
     - ~/.yarn
     - ~/.yarn-cache
+
 test:
   override:
     - yarn test
+
 deployment:
   production:
     branch: master
