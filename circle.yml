@@ -3,17 +3,19 @@ general:
   #  - /var/log/upstart/docker.log
 machine:
   pre:
-    - mkdir ~/.yarn-cache
+    - mkdir ~/yarn ~/.yarn-cache
   environment:
-    MY_TEMP_VAR: google
-    GODIST: "go1.7.3.linux-amd64.tar.gz"
     YARN_VERSION: 0.17.8
 dependencies:
   pre:
-    - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+    - |
+      if [ "$(yarn --version)" != $YARN_VERSION ]; then
+        curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+      fi
   override:
     - yarn install
   cache_directories:
+    - ~/.yarn
     - ~/.yarn-cache
 test:
   override:
