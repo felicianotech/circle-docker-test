@@ -19,6 +19,8 @@ dependencies:
     - ~/.yarn-cache
 
 test:
+  pre:
+    - ps aux | grep postgre
   override:
     - yarn test
 
