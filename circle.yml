@@ -4,6 +4,8 @@ machine:
     PATH: "${PATH}:${HOME}/.yarn/bin"
   node:
     version: 5.0.0
+  services:
+    - docker
 
 dependencies:
   pre:
@@ -26,6 +28,9 @@ test:
     - ps aux | grep postgre
   override:
     - yarn test
+    - docker run --name mycontainer mysql:5.5
+    - sleep 10
+    - sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" mycontainer)" -- bash -c pwd
 
 deployment:
   production:
