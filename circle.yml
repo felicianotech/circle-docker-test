@@ -30,7 +30,8 @@ test:
     - yarn test
     - docker run --name mycontainer -e MYSQL_ROOT_PASSWORD=password -d mysql:5.5
     - sleep 10
-    - sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" mycontainer)" -- bash -c pwd
+    - ls -lah /home
+    - sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" mycontainer)" -- bash -c "ls -lah /home"
 
 deployment:
   production:
