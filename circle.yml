@@ -1,9 +1,13 @@
 machine:
+  pre:
+    - sudo apt-get update; USE_PRECOMPILE=true sudo -E circleci-install php 7.1.0
   environment:
     YARN_VERSION: 0.18.0
     PATH: "${PATH}:${HOME}/.yarn/bin"
   node:
     version: 5.0.0
+  php:
+    version: 7.1.0
   services:
     - docker
 
@@ -28,6 +32,7 @@ test:
     - ps aux | grep postgre
     - yarn cache dir
   override:
+    - php --version
     - yarn test
     - docker run --name mycontainer -e MYSQL_ROOT_PASSWORD=password -d mysql:5.5
     - sleep 10
