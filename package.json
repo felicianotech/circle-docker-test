@@ -1,24 +1,18 @@
 {
-  "name": "example-yarn-package",
-  "version": "1.0.0",
-  "description": "An example package to demonstrate Yarn",
-  "main": "index.js",
-  "repository": {
-    "url": "github.com/yarnpkg/example-yarn-package",
-    "type": "git"
+  "name": "demo-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.7.0"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
   },
   "scripts": {
-    "test": "jest"
-  },
-  "author": "Yarn Contributors",
-  "license": "BSD-2-Clause",
-  "dependencies": {
-    "lodash": "^4.16.2"
-  },
-  "devDependencies": {
-    "jest-cli": "15.1.1"
-  },
-  "jest": {
-    "testEnvironment": "node"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
