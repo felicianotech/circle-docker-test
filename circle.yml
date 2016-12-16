@@ -24,6 +24,7 @@ dependencies:
 test:
   pre:
     - ps aux | grep postgre
+    - yarn cache dir
   override:
     - yarn test
     - docker run --name mycontainer -e MYSQL_ROOT_PASSWORD=password -d mysql:5.5
