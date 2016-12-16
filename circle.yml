@@ -17,6 +17,8 @@ dependencies:
       else
         echo "The correct version of Yarn is already installed."
       fi
+  override:
+    - echo "Hi"
   cache_directories:
     - ~/.yarn
     - ~/.yarn-cache
