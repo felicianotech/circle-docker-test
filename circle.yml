@@ -16,9 +16,9 @@ dependencies:
 test:
   pre:
     - ps aux | grep mongo
+  override:
     - sudo service mongod stop; sleep 5
     - ps aux | grep mongo
-  override:
     - php --version
     - node --version
     - sleep 10
