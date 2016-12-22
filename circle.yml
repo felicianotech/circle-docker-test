@@ -12,35 +12,20 @@ machine:
 dependencies:
   pre:
     - echo $PATH
-    - |
-      if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
-        echo "Download and install Yarn."
-        curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
-      else
-        echo "The correct version of Yarn is already installed."
-      fi
-  override:
-    - echo "Hi"
-  cache_directories:
-    - ~/.yarn
-    - ~/.yarn-cache
 
 test:
   pre:
-    - ps aux | grep postgre
-    - yarn cache dir
+    - ps aux | grep mongo
     - sudo service mongod stop; sleep 5
     - ps aux | grep mongo
   override:
     - php --version
-    - nodejs --version
-    - yarn test
+    - node --version
     - sleep 10
     - ls -lah /home
     - ps aux | grep mongo
   post:
-    - ps aux | grep mongo
-    - sleep 20
+    - sleep 30
     - ps aux | grep mongo
 
 deployment:
