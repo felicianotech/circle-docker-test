@@ -19,6 +19,7 @@ test:
   override:
     - echo "manual" | sudo tee /etc/init/mongod
     - ls -lah /etc/init/
+    - ps aux
     - sudo service mongod stop; sleep 5
     - ps aux | grep mongo
     - php --version
