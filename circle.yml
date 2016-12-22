@@ -17,10 +17,12 @@ test:
   pre:
     - ps aux | grep mongo
   override:
-    - echo "manual" | sudo tee /etc/init/mongod
     - ls -lah /etc/init/
     - ps aux
-    - sudo service mongod stop; sleep 5
+    - echo "manual" | sudo tee /etc/init/mongod
+    - sudo service mongod stop
+    - sudo service mysql stop
+    - sudo service postgres stop
     - ps aux | grep mongo
     - php --version
     - node --version
