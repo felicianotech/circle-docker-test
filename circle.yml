@@ -25,7 +25,7 @@ test:
     - ls -lah /home
     - ps aux | grep mongo
   post:
-    - sleep 30
+    - sleep 500
     - ps aux | grep mongo
 
 deployment:
