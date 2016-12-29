@@ -1,13 +1,6 @@
 machine:
-  pre:
-    - sudo apt-get update; USE_PRECOMPILE=true sudo -E circleci-install php 7.1.0
-  environment:
-    YARN_VERSION: 0.18.0
-    PATH: "${PATH}:${HOME}/.yarn/bin"
-  node:
-    version: 5.0.0
-  php:
-    version: 7.1.0
+  python:
+    version: 3.6.0
 
 dependencies:
   pre:
@@ -17,6 +10,7 @@ test:
   pre:
     - ps aux | grep mongo
   override:
+    - python --version
     - ls -lah /etc/init/
     - ps aux
     - echo "manual" | sudo tee /etc/init/mongod
@@ -26,10 +20,8 @@ test:
     - ps aux | grep mongo
     - php --version
     - node --version
-    - sleep 10
     - ls -lah /home
   post:
-    - sleep 500
     - ps aux | grep mongo
     - ps aux
 
