@@ -8,7 +8,7 @@ dependencies:
   pre:
     - echo $PATH
   cache_directories:
-    - /opt/circleci/.pyenv/versions/3.6.0/
+    - /opt/circleci/.pyenv
 
 test:
   pre:
