@@ -22,7 +22,6 @@ test:
     - sudo service mysql stop
     - sudo service postgresql stop
     - ps aux | grep mongo
-    - node --version
     - ls -lah /home
   post:
     - ps aux
