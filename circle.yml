@@ -1,7 +1,8 @@
 machine:
   pre:
-    - pyenv versions
-    - ls -lah ~/.pyenv/
+    - ls -lah /opt/circleci/.pyenv/
+    - cd /opt/circleci/.pyenv; git pull
+    - pyenv global 3.6.0
 
 dependencies:
   pre:
