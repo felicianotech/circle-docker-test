@@ -8,7 +8,7 @@ test:
   pre:
     - ps aux | grep mongo
   override:
-    - yarn version
+    - yarn --version
     - yarn bin
     - yarn cache dir
     - yarn config list
