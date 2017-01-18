@@ -1,4 +1,6 @@
 dependencies:
+  override:
+    - echo "Hi"
   cache_directories:
     - /opt/circleci/.pyenv
 
