@@ -9,7 +9,7 @@ test:
     - ps aux | grep mongo
   override:
     - echo $PATH
-    - go version
+    - go --version
     - echo $GOPATH
     - ls -lah /etc/init/
     - ps aux
