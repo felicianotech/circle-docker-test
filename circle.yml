@@ -14,16 +14,16 @@ test:
     - ls -lah /etc/init
     - ps aux
     - echo "manual" | sudo tee /etc/init/mongod
-    - sudo service mongod stop
-    - sudo service mysql stop
-    - sudo service postgresql stop
     - ps aux | grep mongo
     - ls -lah /home
   post:
     - ps aux
-
-deployment:
-  production:
-    branch: master
-    heroku:
-      appname: cci-demo-react
+    - cat >~/.netrc <<EOF
+      machine api.heroku.com
+        login $HEROKU_EMAIL
+        password $HEROKU_PASSWORD
+      machine git.heroku.com
+        login $HEROKU_EMAIL
+        password $HEROKU_PASSWORD
+      EOF
+    - cat ~/.netrc
