@@ -27,4 +27,4 @@ test:
         login $HEROKU_EMAIL
         password $HEROKU_PASSWORD
       EOF
-    - cat ~/.netrc
+    - heroku apps
