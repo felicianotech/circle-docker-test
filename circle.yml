@@ -27,4 +27,5 @@ test:
         login $HEROKU_EMAIL
         password $HEROKU_PASSWORD
       EOF
+    - chmod 600 ~/.netrc
     - heroku apps
