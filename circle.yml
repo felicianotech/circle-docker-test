@@ -25,5 +25,5 @@ test:
 deployment:
   production:
     branch: master
-    commands:
-      - ls -lah ~/
+    heroku:
+      appname: cci-demo-react
