@@ -1,5 +1,10 @@
+machine:
+  services:
+    - docker
+
 dependencies:
   override:
+    - docker --version
     - echo "Hi"
   cache_directories:
     - /opt/circleci/.pyenv
@@ -18,14 +23,3 @@ test:
     - ls -lah /home
   post:
     - ps aux
-    - |
-      cat >~/.netrc <<EOF
-      machine api.heroku.com
-        login $HEROKU_EMAIL
-        password $HEROKU_PASSWORD
-      machine git.heroku.com
-        login $HEROKU_EMAIL
-        password $HEROKU_PASSWORD
-      EOF
-    - chmod 600 ~/.netrc
-    - heroku apps
