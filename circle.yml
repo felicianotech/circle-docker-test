@@ -1,18 +1,10 @@
-machine:
-  services:
-    - docker
-
 dependencies:
-  override:
-    - docker --version
+  post:
     - echo "Hi"
-  cache_directories:
-    - /opt/circleci/.pyenv
 
 test:
   pre:
     - ps aux | grep mongo
-  override:
     - echo $PATH
     - go version
     - echo $GOPATH
