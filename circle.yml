@@ -1,9 +1,12 @@
 dependencies:
+  override:
+    - ls -lah ~/
   post:
     - echo "Hi"
 
 test:
   pre:
+    - ls -lah ~/
     - ps aux | grep mongo
     - go version
     - echo $GOPATH
