@@ -1,3 +1,8 @@
+machine:
+  pre:
+    - sudo apt-get update; USE_PRECOMPILE=true sudo -E circleci-install php 7.1.0
+  php:
+    version: 7.1.0
 dependencies:
   override:
     - ls -lah ~/
@@ -16,5 +21,7 @@ test:
     - ps aux | grep mongo
     - netstat -plntu
     - netstat -plntu
+  override:
+    - php --version
   post:
     - ps aux
