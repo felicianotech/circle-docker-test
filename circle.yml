@@ -8,7 +8,7 @@ test:
   pre:
     - ls -lah ~/
     - ps aux | grep mongo
-    - cccccgo version
+    - go version
     - echo $GOPATH
     - ls -lah /etc/init
     - ps aux
