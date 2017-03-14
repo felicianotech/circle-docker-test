@@ -13,7 +13,7 @@ test:
   pre:
     - ls -lah ~/
     - ps aux | grep mongo
-    - go version
+    - cccccgo version
     - echo $GOPATH
     - ls -lah /etc/init
     - ps aux
@@ -22,6 +22,9 @@ test:
     - netstat -plntu
     - netstat -plntu
   override:
+    - php --version
+    - php --version
+    - php --version
     - php --version
   post:
     - ps aux
