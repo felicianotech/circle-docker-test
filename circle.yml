@@ -17,7 +17,7 @@ test:
     - netstat -plntu
     - netstat -plntu
   override:
-    - php --version
+    - git --version
     - nproc --all
   post:
     - ps aux
