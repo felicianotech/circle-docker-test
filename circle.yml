@@ -8,7 +8,7 @@ test:
   pre:
     - ls -lah ~/
     - ps aux | grep mongo
-    - echo $GOPATH
+    - go version
     - echo "manual" | sudo tee /etc/init/mongod
     - ps aux | grep mongo
     - netstat -plntu
