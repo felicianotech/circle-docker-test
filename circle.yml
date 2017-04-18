@@ -3,6 +3,7 @@ dependencies:
     - ls -lah ~/
   post:
     - echo "Hi"
+    - sudo apt-get update
 
 test:
   pre:
