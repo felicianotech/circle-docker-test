@@ -1,3 +1,6 @@
+machine:
+  environment:
+    CRAZZY: hi
 dependencies:
   override:
     - ls -lah ~/
