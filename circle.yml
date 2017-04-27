@@ -6,7 +6,8 @@ dependencies:
     - ls -lah ~/
   post:
     - echo "Hi"
-    - cat /etc/hosts
+    - host registry.npmjs.com
+    - dig A registry.npmjs.com
 
 test:
   pre:
