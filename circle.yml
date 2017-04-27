@@ -6,7 +6,7 @@ dependencies:
     - ls -lah ~/
   post:
     - echo "Hi"
-    - sudo apt-get update
+    - cat /etc/hosts
 
 test:
   pre:
