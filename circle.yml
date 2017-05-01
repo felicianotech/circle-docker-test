@@ -22,3 +22,11 @@ test:
     - nproc --all
   post:
     - ps aux
+
+deployment:
+  prod:
+    branch: master
+    commands:
+      - echo "Hi"
+      - echo $CRAZZY
+      - echo "============"
