@@ -30,3 +30,4 @@ deployment:
       - echo "Hi"
       - echo $MY_AWESOME_VAR
       - echo "============"
+      - ./deploy.sh
