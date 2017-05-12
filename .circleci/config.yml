@@ -8,3 +8,9 @@ jobs:
       - run:
           name: "See Docker Version"
           command: docker --version
+      - run:
+          name: "See Python versions"
+          command: |
+            python -V
+            python3 -V
+            dpkg -l | grep python
