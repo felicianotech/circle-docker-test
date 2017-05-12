@@ -11,6 +11,4 @@ jobs:
       - run:
           name: "See Python versions"
           command: |
-            python -V
-            python3 -V
             dpkg -l | grep python
