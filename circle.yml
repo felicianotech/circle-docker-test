@@ -1,6 +1,7 @@
 machine:
   environment:
     CRAZZY: hi
+
 dependencies:
   override:
     - ls -lah ~/
@@ -8,6 +9,7 @@ dependencies:
     - echo "Hi"
     - host registry.npmjs.com
     - dig A registry.npmjs.com
+    - uname -a
 
 test:
   pre:
