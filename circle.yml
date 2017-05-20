@@ -5,6 +5,7 @@ machine:
 dependencies:
   override:
     - ls -lah ~/
+    - yarn --version
   post:
     - echo "Hi"
     - host registry.npmjs.com
