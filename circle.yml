@@ -1,30 +1,23 @@
 machine:
   environment:
     CRAZZY: hi
-    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
 
 dependencies:
   override:
-    - ls -lah ~/
     - yarn --version
   post:
     - echo "Hi"
     - host registry.npmjs.com
     - dig A registry.npmjs.com
-    - uname -a
     - apt-cache depends circleci-php-7.1.3
+    - apt-cache depends mysql-server
+    - apt-cache depends mysql-common
 
 test:
   pre:
     - ls -lah ~/
-    - ps aux | grep mongo
-    - go version
-    - echo "manual" | sudo tee /etc/init/mongod
-    - ps aux | grep mongo
-    - netstat -plntu
   override:
     - git --version
-    - nproc --all
   post:
     - ps aux
 
@@ -35,4 +28,3 @@ deployment:
       - echo "Hi"
       - echo $MY_AWESOME_VAR
       - echo "============"
-      - ./deploy.sh
