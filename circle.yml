@@ -12,6 +12,7 @@ dependencies:
     - host registry.npmjs.com
     - dig A registry.npmjs.com
     - uname -a
+    - sudo apt-get -y remove --purge mysql-server mysql-client mysql-common
 
 test:
   pre:
