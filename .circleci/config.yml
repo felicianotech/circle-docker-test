@@ -6,8 +6,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "See Docker Version"
-          command: docker --version
+          name: "Check variable"
+          command: echo $BASH_ENV
       - run:
           name: "See Python versions"
           command: |
