@@ -17,8 +17,9 @@ jobs:
             sudo dpkg -i virtualbox-5.1_5.1.22-115126~Ubuntu~trusty_amd64.deb
             sudo dpkg -i vagrant_1.9.5_x86_64.deb
             vagrant --version
-            vagrant init
+            vagrant init ubuntu/trusty64
             vagrant up
+            vagrant status
       - run:
           name: "See Python versions"
           command: |
