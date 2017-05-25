@@ -3,6 +3,8 @@ jobs:
   build:
     machine: true
     working_directory: ~/project
+    environment:
+      - DEBIAN_FRONTEND: "noninteractive"
     steps:
       - checkout
       - run:
