@@ -9,7 +9,7 @@ jobs:
           name: "Install Vagrant and spit up VM."
           command: |
             wget https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.deb
-            dpkg -i vagrant_1.9.5_x86_64.deb
+            sudo dpkg -i vagrant_1.9.5_x86_64.deb
             vagrant --version
             vagrant init
             vagrant up
