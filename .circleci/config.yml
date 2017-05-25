@@ -1,14 +1,18 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: golang:1.8
+    machine: true
     working_directory: ~/project
     steps:
       - checkout
       - run:
-          name: "Check variable"
-          command: echo $BASH_ENV
+          name: "Install Vagrant and spit up VM."
+          command: |
+            wget https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.deb
+            dpkg -i vagrant_1.9.5_x86_64.deb
+            vagrant --version
+            vagrant init
+            vagrant up
       - run:
           name: "See Python versions"
           command: |
