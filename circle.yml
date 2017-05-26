@@ -7,12 +7,7 @@ dependencies:
     - yarn --version
   post:
     - echo "Hi"
-    - apt-cache depends ampache-common
-    - apt-cache rdepends ampache-common
-    - apt-cache depends ampache
-    - apt-cache rdepends ampache
-    #- sudo apt-get remove mysql-server mysql-client mysql-common
-    - sudo apt-get remove vim
+    - sudo apt-get remove mysql-server mysql-client
 
 test:
   pre:
