@@ -7,15 +7,10 @@ dependencies:
     - yarn --version
   post:
     - echo "Hi"
-    - apt-cache depends apache2-dev
-    - apt-cache rdepends apache2-dev
-    - apt-cache depends circleci-php-7.1.3
-    - apt-cache depends mysql-community-server
-    - apt-cache rdepends mysql-server
-    - apt-cache depends mysql-community-client
-    - apt-cache rdepends mysql-client
-    - apt-cache depends mysql-common
-    - apt-cache rdepends mysql-common
+    - apt-cache depends ampache-common
+    - apt-cache rdepends ampache-common
+    - apt-cache depends ampache
+    - apt-cache rdepends ampache
     #- sudo apt-get remove mysql-server mysql-client mysql-common
     - sudo apt-get remove vim
 
