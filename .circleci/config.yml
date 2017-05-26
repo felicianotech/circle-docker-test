@@ -10,6 +10,7 @@ jobs:
       - run:
           name: "Install Vagrant and spit up VM."
           command: |
+            uname -a
             wget https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.deb
             sudo apt-get update -y && sudo apt-get upgrade -y
             sudo apt-get install -y virtualbox-dkms virtualbox dkms
