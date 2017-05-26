@@ -13,7 +13,7 @@ jobs:
             uname -a
             wget https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.deb
             sudo apt-get update -y && sudo apt-get upgrade -y
-            sudo apt-get install -y virtualbox-dkms virtualbox dkms
+            sudo apt-get install -y virtualbox-dkms virtualbox dkms linux-headers-4.4.0-53-generic linux-headers-generic
             sudo dpkg -i vagrant_1.9.5_x86_64.deb
             vagrant --version
             free -m
