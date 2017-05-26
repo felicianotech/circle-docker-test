@@ -16,7 +16,8 @@ dependencies:
     - apt-cache rdepends mysql-client
     - apt-cache depends mysql-common
     - apt-cache rdepends mysql-common
-    - sudo apt-get remove mysql-server mysql-client mysql-common
+    #- sudo apt-get remove mysql-server mysql-client mysql-common
+    - sudo apt-get remove vim
 
 test:
   pre:
