@@ -7,7 +7,7 @@ dependencies:
     - yarn --version
   post:
     - echo "Hi"
-    - sudo apt-get remove mysql-server mysql-client
+    - sudo apt-get remove mysql-common
 
 test:
   pre:
