@@ -7,10 +7,9 @@ dependencies:
     - yarn --version
   post:
     - echo "Hi"
-    - host registry.npmjs.com
-    - dig A registry.npmjs.com
     - apt-cache depends circleci-php-7.1.3
     - apt-cache depends mysql-server
+    - apt-cache depends mysql-client
     - apt-cache depends mysql-common
 
 test:
