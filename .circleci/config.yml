@@ -12,4 +12,4 @@ jobs:
           command: |
             uname -a
             docker --version
-          docker run ubuntu:16.04 uname -a
+            docker run ubuntu:16.04 uname -a
