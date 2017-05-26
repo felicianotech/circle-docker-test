@@ -9,7 +9,9 @@ dependencies:
     - echo "Hi"
     - apt-cache depends circleci-php-7.1.3
     - apt-cache depends mysql-community-server
+    - apt-cache rdepends mysql-server
     - apt-cache depends mysql-community-client
+    - apt-cache rdepends mysql-client
     - apt-cache depends mysql-common
 
 test:
