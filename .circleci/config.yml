@@ -13,12 +13,10 @@ jobs:
             wget https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.deb
             wget http://download.virtualbox.org/virtualbox/5.1.22/virtualbox-5.1_5.1.22-115126~Ubuntu~trusty_amd64.deb
             sudo apt-get update -y && sudo apt-get upgrade -y
-            sudo apt-get install -y linux-headers-4.4.0-53-generic linux-headers-generic
-            sudo dpkg -i virtualbox-5.1_5.1.22-115126~Ubuntu~trusty_amd64.deb
+            sudo apt-get install -y virtualbox
             sudo dpkg -i vagrant_1.9.5_x86_64.deb
             vagrant --version
             free -m
-            sleep 60
             vagrant up
             free -m
             vagrant status
