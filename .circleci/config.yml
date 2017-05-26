@@ -2,13 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: golang:1.8
+      - image: ubuntu:16.04
     working_directory: ~/project
     steps:
       - checkout
       - run:
           name: "Check variable"
-          command: echo $BASH_ENV
+          command: uname -a
       - run:
           name: "See Python versions"
           command: |
