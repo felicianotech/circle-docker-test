@@ -9,7 +9,7 @@ dependencies:
     - echo "Hi"
   post:
     - npm --version
-    - nodejs --version
+    - node --version
 
 test:
   pre:
