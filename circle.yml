@@ -5,10 +5,11 @@ machine:
     version: 8.0.0
 
 dependencies:
-  post:
+  override:
     - echo "Hi"
+  post:
     - npm --version
-      nodejs --version
+    - nodejs --version
 
 test:
   pre:
