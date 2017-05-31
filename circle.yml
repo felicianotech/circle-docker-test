@@ -1,15 +1,14 @@
 machine:
   environment:
     CRAZZY: hi
+  node:
+    version: 8.0.0
 
 dependencies:
-  override:
-    - yarn --version
   post:
     - echo "Hi"
-    - sudo apt-get update
-    - apt-cache rdepends mysql-common
-    - sudo apt-get remove mysql-common
+    - npm --version
+      nodejs --version
 
 test:
   pre:
