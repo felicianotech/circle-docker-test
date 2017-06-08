@@ -25,4 +25,4 @@ deployment:
     commands:
       - echo "Hi"
       - echo $MY_AWESOME_VAR
-      - echo "============"
+#      - echo "============"
