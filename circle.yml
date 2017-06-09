@@ -20,7 +20,9 @@ test:
     - ps aux
     - heroku --version
     - heroku --help
-    - heroku update
+      #- heroku update
+    - wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+    - heroku --version
 
 deployment:
   prod:
