@@ -20,7 +20,7 @@ test:
     - ps aux
     - heroku --version
     - heroku --help
-    - heroku upgrade
+    - heroku update
 
 deployment:
   prod:
