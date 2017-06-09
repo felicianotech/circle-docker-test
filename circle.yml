@@ -18,6 +18,8 @@ test:
     - "true"
   post:
     - ps aux
+    - heroku --version
+    - heroku --help
 
 deployment:
   prod:
