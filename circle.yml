@@ -1,15 +1,12 @@
 machine:
   environment:
     CRAZZY: hi
-  node:
-    version: 8.0.0
 
 dependencies:
   override:
     - echo "Hi"
   post:
-    - npm --version
-    - node --version
+    - echo "Bye"
 
 test:
   pre:
@@ -17,10 +14,9 @@ test:
   override:
     - "true"
   post:
-    - ps aux
     - heroku --version
-    - heroku --help
-      #- heroku update
+    - heroku update
+    - heroku --version
     - wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
     - heroku --version
 
@@ -30,4 +26,3 @@ deployment:
     commands:
       - echo "Hi"
       - echo $MY_AWESOME_VAR
-#      - echo "============"
