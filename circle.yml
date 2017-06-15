@@ -6,7 +6,7 @@ dependencies:
   override:
     - echo "Hi"
   post:
-    - echo "Bye"
+    - echo "Bye!"
 
 test:
   pre:
