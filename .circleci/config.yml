@@ -12,4 +12,5 @@ jobs:
           command: |
             uname -a
             docker --version
-            docker run ubuntu:16.04 uname -a
+            python --version
+            python3 --version
