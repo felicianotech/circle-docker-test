@@ -5,6 +5,8 @@ machine:
 dependencies:
   override:
     - echo "Hi"
+    - echo $CRAZZY
+    - echo $crazzy
   post:
     - echo "Bye!"
 
@@ -14,10 +16,6 @@ test:
   override:
     - "true"
   post:
-    - heroku --version
-    - heroku update
-    - heroku --version
-    - wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
     - heroku --version
 
 deployment:
