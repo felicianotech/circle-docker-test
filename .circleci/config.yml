@@ -12,5 +12,4 @@ jobs:
           command: |
             uname -a
             docker --version
-            python --version
-            python3 --version
+            docker pull promact/aspnetcore-node
