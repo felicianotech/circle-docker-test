@@ -1,6 +1,8 @@
 machine:
   environment:
     CRAZZY: hi
+  services:
+    - docker
 
 dependencies:
   override:
