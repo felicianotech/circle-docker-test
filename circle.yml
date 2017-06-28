@@ -9,6 +9,7 @@ dependencies:
     - echo $crazzy
     - echo $Happy
     - echo $HAPPY
+    - docker pull promact/aspnetcore-node
   post:
     - echo "Bye!"
 
