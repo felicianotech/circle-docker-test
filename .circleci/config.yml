@@ -9,4 +9,4 @@ jobs:
       - setup_remote_docker
       - run:
           name: "Check Docker"
-          command: sleep 20; docker --version
+          command: sleep 20; docker version
