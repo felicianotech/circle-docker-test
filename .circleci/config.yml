@@ -6,9 +6,6 @@ jobs:
     working_directory: ~/project
     steps:
       - checkout
-      - run:
-          name: "Check Docker"
-          command: docker --version
       - setup_remote_docker
       - run:
           name: "Check Docker"
