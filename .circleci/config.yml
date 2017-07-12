@@ -2,11 +2,14 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ubuntu:16.04
+      - image: circleci/golang:1.8
     working_directory: ~/project
     steps:
       - checkout
+      - run:
+          name: "Check Docker"
+          command: docker --version
       - setup_remote_docker
       - run:
           name: "Check Docker"
-          command: sleep 20; docker version
+          command: docker --version
