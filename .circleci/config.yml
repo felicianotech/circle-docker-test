@@ -7,9 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Check variable"
-          command: uname -a
+          name: "Check Docker"
+          command: docker --version
+      - setup_remote_docker
       - run:
-          name: "See Python versions"
-          command: |
-            dpkg -l | grep python
+          name: "Check Docker"
+          command: docker --version
