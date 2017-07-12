@@ -2,16 +2,10 @@ machine:
   environment:
     CRAZZY: hi
   services:
-    - docker
 
 dependencies:
   override:
     - echo "Hi"
-    - echo $CRAZZY
-    - echo $crazzy
-    - echo $Happy
-    - echo $HAPPY
-    - docker pull promact/aspnetcore-node
   post:
     - echo "Bye!"
 
@@ -21,11 +15,10 @@ test:
   override:
     - "true"
   post:
-    - heroku --version
+    - bundler --version
 
 deployment:
   prod:
     branch: master
     commands:
       - echo "Hi"
-      - echo $MY_AWESOME_VAR
