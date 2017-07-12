@@ -11,5 +11,4 @@ jobs:
       - run:
           name: "Install Vagrant and spit up VM."
           command: |
-            man psql
             psql --version
