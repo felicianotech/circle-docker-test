@@ -15,7 +15,7 @@ test:
   override:
     - "true"
   post:
-    - bundler --version
+    - yarn --version
 
 deployment:
   prod:
