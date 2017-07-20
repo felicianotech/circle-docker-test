@@ -16,9 +16,3 @@ test:
     - "true"
   post:
     - yarn --version
-
-deployment:
-  prod:
-    branch: master
-    commands:
-      - echo "Hi"
