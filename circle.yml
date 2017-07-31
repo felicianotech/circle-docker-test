@@ -5,7 +5,7 @@ machine:
 
 dependencies:
   override:
-    - echo "Hi"
+    - echo "Hi!"
   post:
     - echo "Bye!"
 
