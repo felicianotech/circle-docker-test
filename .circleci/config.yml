@@ -9,6 +9,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Install Vagrant and spit up VM."
+          name: "Install Vagrant and spit up VM...."
           command: |
             psql --version
