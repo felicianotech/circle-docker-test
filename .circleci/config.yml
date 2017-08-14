@@ -13,3 +13,16 @@ jobs:
       - run:
           name: "Check Docker"
           command: echo "Hey"
+  test:
+    docker:
+      - image: golang:1.8-alpine
+    working_directory: /go/src/github.com/myorg/myproject2
+    steps:
+      - run: "apk -U add make git openssh-client"
+      - checkout: {}
+      - run:
+          name: "Other"
+          command: echo "Hi"
+      - run:
+          name: "Check Docker"
+          command: echo "Hey"
