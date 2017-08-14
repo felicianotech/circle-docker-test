@@ -5,6 +5,7 @@ jobs:
       - image: golang:1.8-alpine
     working_directory: /go/src/github.com/myorg/myproject
     steps:
+      - run: "apk -U add make git openssh-client"
       - checkout: {}
       - run:
           name: "Check Docker"
