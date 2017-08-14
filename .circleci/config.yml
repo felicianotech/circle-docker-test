@@ -8,9 +8,7 @@ jobs:
       - checkout
       - run:
           name: "Check Docker"
-          command: docker --version
-      - setup_remote_docker:
-          version: 17.05.0-ce
+          command: echo "Hi"
       - run:
           name: "Check Docker"
-          command: docker version
+          command: echo "Hey"
