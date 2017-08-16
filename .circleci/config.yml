@@ -11,23 +11,3 @@ jobs:
       - run:
           name: "Check Docker"
           command: composer --version
-  test:
-    docker:
-      - image: golang:1.8-alpine
-    working_directory: /go/src/github.com/myorg/myproject2
-    steps:
-      - run: "apk -U add make git openssh-client"
-      - checkout: {}
-      - run:
-          name: "Other"
-          command: echo "Hi"
-      - run:
-          name: "Check Docker"
-          command: echo "Hey"
-
-workflows:
-  version: 2
-  builds:
-    jobs:
-      - build
-      - test
