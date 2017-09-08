@@ -8,7 +8,7 @@ jobs:
       - run:
           name: "Check Docker"
           command: |
-            if [ -z ${CIRCLE_JOB+x} ]; then
+            if [[ ! $CIRCLE_JOB ]]; then
               echo "CIRCLE_JOB is not set"
             else
               echo "CIRCLE_JOB is set"
