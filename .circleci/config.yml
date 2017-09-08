@@ -7,7 +7,9 @@ jobs:
       - checkout
       - run:
           name: "Check Docker"
-          command: echo "Hi"
-      - run:
-          name: "Check Docker"
-          command: composer --version
+          command: |
+            if [ -z ${CIRCLE_JOB+x} ]; then
+              echo "CIRCLE_JOB is not set"
+            else
+              echo "CIRCLE_JOB is set"
+            fi
