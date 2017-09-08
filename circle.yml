@@ -15,4 +15,10 @@ test:
   override:
     - "true"
   post:
-    - yarn --version
+    - |
+        if [ -z ${CIRCLE_JOB+x} ]; then                                                                                                                              
+          echo "CIRCLE_JOB is not set"                                                                                                                               
+        else                                                                                                                                                         
+          echo "CIRCLE_JOB is set"                                                                                                                                   
+          echo "And the value is: " $CIRCLE_JOB                                                                                                                      
+        fi
