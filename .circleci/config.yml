@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: felicianotech/test:michele-so3
+      - image: node:8.1.4-alpine
     steps:
       - checkout
       - run:
