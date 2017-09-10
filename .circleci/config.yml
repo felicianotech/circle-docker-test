@@ -2,15 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: felicianotech/test:michele-so8
+      - image: circleci/php:7.0.23-browsers
     steps:
       - checkout
-      - run:
-          name: "Check Docker"
-          command: |
-            if [[ ! $CIRCLE_JOB ]]; then
-              echo "CIRCLE_JOB is not set"
-            else
-              echo "CIRCLE_JOB is set"
-              echo "And the value is: " $CIRCLE_JOB
-            fi
+      - run: sudo apt install -y libsqlite3-dev
