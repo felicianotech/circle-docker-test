@@ -2,8 +2,6 @@ version: 2
 jobs:
   build:
     docker:
-      - image: micheleminno/elasticsearch
-      - image: mysql:5.5
       - image: felicianotech/test:michele-so3
     steps:
       - checkout
