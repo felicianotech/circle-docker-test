@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: felicianotech/test:michele-so4
+      - image: felicianotech/test:michele-so5
     steps:
       - checkout
       - run:
