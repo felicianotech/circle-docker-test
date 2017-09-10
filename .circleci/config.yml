@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: micheleminno/elasticsearch
       - image: mysql:5.5
-      - image: felicianotech/test:michele-so
+      - image: felicianotech/test:michele-so2
     steps:
       - checkout
       - run:
