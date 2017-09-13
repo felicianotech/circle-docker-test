@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:7.0.23-browsers
+      - image: ubuntu:16.04
     steps:
       - checkout
-      - run: sudo apt install -y libsqlite3-dev
+      - run: uname -a
