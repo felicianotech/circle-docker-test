@@ -1,14 +1,7 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/golang:1.8
-    working_directory: ~/project
-    environment:
-      - DEBIAN_FRONTEND: "noninteractive"
+    machine: true
     steps:
       - checkout
-      - run:
-          name: "Install Vagrant and spit up VM...."
-          command: |
-            psql --version
+      - run: uname -a
