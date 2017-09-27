@@ -12,5 +12,6 @@ jobs:
           #curl -L https://www.npmjs.org/install.sh | sudo sh
           #npm --version
           npm cache clean --force
+          sudo npm cache clean --force
           sudo npm install npm@latest -g
           npm --version
