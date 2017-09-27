@@ -8,5 +8,5 @@ jobs:
       - run: |
           node --version
           npm --version
-          sudo npm install npm@latest -g
+          sudo npm install npm -g
           npm --version
