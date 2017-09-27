@@ -11,5 +11,5 @@ jobs:
           sudo npm --version
           npm update
           #sudo npm update -g
-          #sudo npm install npm -g
+          sudo npm install npm@5.4.2 -g
           npm --version
