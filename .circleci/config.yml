@@ -9,5 +9,5 @@ jobs:
           node --version
           npm --version
           sudo npm install npmlog -g
-          npm install npm@latest -g
+          sudo npm install npm@latest -g
           npm --version
