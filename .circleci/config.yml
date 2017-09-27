@@ -9,7 +9,7 @@ jobs:
           node --version
           npm --version
           sudo npm --version
-          npm update
+          #npm update
           #sudo npm update -g
-          sudo npm install npm@5.4.2 -g
+          npm install npm@latest
           npm --version
