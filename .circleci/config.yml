@@ -8,8 +8,8 @@ jobs:
       - run: |
           node --version
           npm --version
-          sudo npm update -g
           sudo npm install -g
+          sudo npm update -g
           sudo npm install npmlog -g
           sudo npm install npm@latest -g
           npm --version
