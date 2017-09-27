@@ -9,7 +9,6 @@ jobs:
           node --version
           npm --version
           sudo npm --version
-          #npm update
-          #sudo npm update -g
-          npm install npm@latest
+          sudo npm update -g
+          npm install npm@latest -g
           npm --version
