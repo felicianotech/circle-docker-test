@@ -10,5 +10,5 @@ jobs:
           npm --version
           sudo rm -rf /usr/local/lib/node_modules/
           sudo rm -rf /usr/local/bin/npm
-          curl -L https://www.npmjs.org/install.sh | sh
+          curl -L https://www.npmjs.org/install.sh | sudo sh
           npm --version
