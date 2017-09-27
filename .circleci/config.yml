@@ -8,7 +8,7 @@ jobs:
       - run: |
           node --version
           npm --version
-          sudo npm update -g
           npm update
+          sudo npm update -g
           sudo npm install npm -g
           npm --version
