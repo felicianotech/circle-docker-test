@@ -8,10 +8,7 @@ jobs:
       - run: |
           node --version
           npm --version
-          which npm
           sudo rm -rf /usr/local/lib/node_modules/
-          #curl -L https://www.npmjs.org/install.sh | sudo sh
-          #npm --version
-          sudo npm cache clean --force
-          sudo npm install npm@latest -g
+          sudo rm -rf /usr/local/bin/npm
+          curl -L https://www.npmjs.org/install.sh | sh
           npm --version
