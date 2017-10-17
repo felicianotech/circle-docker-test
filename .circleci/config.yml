@@ -2,13 +2,8 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.6
+      - image: circleci/golang:1.9-stretch
     steps:
       - checkout
       - run: |
-          node --version
-          npm --version
-          sudo rm -rf /usr/local/lib/node_modules/
-          sudo rm -rf /usr/local/bin/npm
-          curl -L https://www.npmjs.org/install.sh | sudo sh
-          npm --version
+          echo "Hi"
