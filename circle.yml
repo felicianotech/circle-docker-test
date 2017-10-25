@@ -17,5 +17,5 @@ test:
   post:
     - |
         apache2 --version
-        sudo apt-get update && sudo apt-get -y upgrade
+        sudo apt-get update && sudo apt-get -y install apache2
         apache2 --version
