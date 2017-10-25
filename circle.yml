@@ -16,6 +16,4 @@ test:
     - "true"
   post:
     - |
-        apache2 -v
-        sudo apt-get update && sudo apt-get -y install apache2
-        apache2 -v
+        apt-cache policy apache2
