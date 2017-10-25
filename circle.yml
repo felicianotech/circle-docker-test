@@ -16,9 +16,6 @@ test:
     - "true"
   post:
     - |
-        if [[ ! $CIRCLE_JOB ]]; then                                                                                                                              
-          echo "CIRCLE_JOB is not set"                                                                                                                               
-        else                                                                                                                                                         
-          echo "CIRCLE_JOB is set"                                                                                                                                   
-          echo "And the value is: " $CIRCLE_JOB                                                                                                                      
-        fi
+        apache2 --version
+        sudo apt-get update && sudo apt-get -y upgrade
+        apache2 --version
