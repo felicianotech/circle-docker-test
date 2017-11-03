@@ -1,3 +1,12 @@
+workflows:
+  version: 2
+    main:
+      - build
+      - html-testing
+      - ui-testing
+      - process-testing
+      - deploy
+
 defaults: &defaults
   docker:
     - image: felicianotech/docker-hugo:0.27.1
