@@ -1,9 +1,51 @@
+defaults: &defaults
+  docker:
+    - image: felicianotech/docker-hugo:0.27.1
+  working_directory: ~/project
+
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/golang:1.9-stretch
+    <<: *defaults
     steps:
       - checkout
-      - run: |
-          echo "Hi"
+      - run:
+          name: "Build Our Statically Generated Docs Website with Hugo"
+          command: HUGO_ENV=production hugo -v -s src/
+      - persist_to_workspace:
+          root: /root/project
+          paths: src/public/
+  html-testing:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /root/project
+      - run:
+          name: "Test With HTML Proofer"
+          command: echo "This is where we'd do testing with HTML Proofer."
+  ui-testing:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /root/project
+      - run:
+          name: "Test With Selenium or Behat"
+          command: echo "This is where we'd run a headless browser and test our site's UI."
+  process-testing:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /root/project
+      - run:
+          name: "Test the commit for org or team processes"
+          command: |
+            echo "This is where we'd test this commit for things our project wants to enforce"
+            echo " such as code formatting, the signing of a CLA, security requirements, etc."
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /root/project
+      - run:
+          name: "Deploy Our Docs Site"
+          command: echo "This is where we'd deploy using rsync, awscli, etc."
