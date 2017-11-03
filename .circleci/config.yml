@@ -1,6 +1,7 @@
 workflows:
   version: 2
-    main:
+  main:
+    jobs:
       - build
       - html-testing
       - ui-testing
