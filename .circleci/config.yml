@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: "Build Our Statically Generated Docs Website with Hugo"
-          command: HUGO_ENV=production hugo -v -s src/
+          command: echo "Hi"
       - persist_to_workspace:
           root: /root/project
           paths: src/public/
