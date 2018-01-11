@@ -4,8 +4,6 @@ workflows:
     jobs:
       - build
       - html-testing
-      - ui-testing
-      - process-testing
       - deploy
 
 defaults: &defaults
@@ -33,24 +31,18 @@ jobs:
       - run:
           name: "Test With HTML Proofer"
           command: echo "This is where we'd do testing with HTML Proofer."
-  ui-testing:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: /root/project
       - run:
-          name: "Test With Selenium or Behat"
+          name: "Testing different step name lengths."
           command: echo "This is where we'd run a headless browser and test our site's UI."
-  process-testing:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: /root/project
       - run:
-          name: "Test the commit for org or team processes"
-          command: |
-            echo "This is where we'd test this commit for things our project wants to enforce"
-            echo " such as code formatting, the signing of a CLA, security requirements, etc."
+          name: "Testing different step name lengths. This is longer."
+          command: echo "This is where we'd run a headless browser and test our site's UI."
+      - run:
+          name: "Testing different step name lengths. This is the third shortest length here. So just dig it."
+          command: echo "This is where we'd run a headless browser and test our site's UI."
+      - run:
+          name: "Testing different step name lengths. Testing different step name lengths. Testing different step name lengths. Testing different step name lengths. Testing different step name lengths."
+          command: echo "This is where we'd run a headless browser and test our site's UI."
   deploy:
     <<: *defaults
     steps:
