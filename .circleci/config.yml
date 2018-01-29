@@ -3,51 +3,24 @@ workflows:
   main:
     jobs:
       - build
-      - html-testing
       - deploy
-
-defaults: &defaults
-  docker:
-    - image: snapcore/snapcraft:edge
-  working_directory: ~/project
 
 version: 2
 jobs:
   build:
-    <<: *defaults
+    docker:
+      - image: snapcore/snapcraft:edge
+    working_directory: ~/project
     steps:
       - checkout
       - run:
           name: "Build Our Statically Generated Docs Website with Hugo"
           command: snapcraft --version
-      - persist_to_workspace:
-          root: /root/project
-          paths: src/public/
-  html-testing:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: /root/project
-      - run:
-          name: "Test With HTML Proofer"
-          command: echo "This is where we'd do testing with HTML Proofer."
-      - run:
-          name: "Testing different step name lengths."
-          command: echo "This is where we'd run a headless browser and test our site's UI."
-      - run:
-          name: "Testing different step name lengths. This is longer."
-          command: echo "This is where we'd run a headless browser and test our site's UI."
-      - run:
-          name: "Testing different step name lengths. This is the third shortest length here. So just dig it."
-          command: echo "This is where we'd run a headless browser and test our site's UI."
-      - run:
-          name: "Testing different step name lengths. Testing different step name lengths. Testing different step name lengths. Testing different step name lengths. Testing different step name lengths."
-          command: echo "This is where we'd run a headless browser and test our site's UI."
   deploy:
-    <<: *defaults
+    docker:
+      - image: cibuilds/hugo:0.34
+    working_directory: ~/project
     steps:
-      - attach_workspace:
-          at: /root/project
       - run:
           name: "Deploy Our Docs Site"
           command: echo "This is where we'd deploy using rsync, awscli, etc."
