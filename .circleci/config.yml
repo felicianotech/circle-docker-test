@@ -8,7 +8,7 @@ workflows:
 
 defaults: &defaults
   docker:
-    - image: snapcore/snapcraft/
+    - image: snapcore/snapcraft:edge
   working_directory: ~/project
 
 version: 2
