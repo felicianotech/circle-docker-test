@@ -8,7 +8,7 @@ workflows:
 
 defaults: &defaults
   docker:
-    - image: felicianotech/docker-hugo:0.34
+    - image: snapcore/snapcraft/
   working_directory: ~/project
 
 version: 2
@@ -19,7 +19,7 @@ jobs:
       - checkout
       - run:
           name: "Build Our Statically Generated Docs Website with Hugo"
-          command: echo "Hi"; mkdir -p src/public
+          command: snapcraft --version
       - persist_to_workspace:
           root: /root/project
           paths: src/public/
