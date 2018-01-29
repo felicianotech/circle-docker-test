@@ -8,7 +8,7 @@ workflows:
 
 defaults: &defaults
   docker:
-    - image: felicianotech/docker-hugo:0.27.1
+    - image: felicianotech/docker-hugo:0.34
   working_directory: ~/project
 
 version: 2
