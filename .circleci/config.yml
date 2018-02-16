@@ -1,26 +1,35 @@
-workflows:
-  version: 2
-  main:
-    jobs:
-      - build
-      - deploy
-
 version: 2
 jobs:
   build:
+    working_directory: ~/tmp
     docker:
-      - image: snapcore/snapcraft:edge
-    working_directory: ~/project
+      - image: circleci/node:9.4.0
+    branches:
+      only:
+        - circleci
     steps:
       - checkout
+      - setup_remote_docker
       - run:
-          name: "Build Our Statically Generated Docs Website with Hugo"
-          command: snapcraft --version
-  deploy:
-    docker:
-      - image: cibuilds/hugo:0.34
-    working_directory: ~/project
-    steps:
+          name: Install Docker client
+          command: |
+            set -x
+            VER="v17.12.0-ce"
+            sudo curl -L -o /usr/bin/docker-$VER.tgz https://github.com/docker/docker-ce/archive/$VER.tar.gz
+            sudo tar x -C /tmp -f /usr/bin/docker-$VER.tgz
+            sudo chmod +x /usr/bin/docker*
+            sudo rm /usr/bin/docker-$VER*.tgz
+
       - run:
-          name: "Deploy Our Docs Site"
-          command: echo "This is where we'd deploy using rsync, awscli, etc."
+          name: Install Docker Compose
+          command: |
+            VER="1.18.0"
+            sudo curl -L "https://github.com/docker/compose/releases/download/$VER/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+            sudo chmod +x /usr/bin/docker-compose
+
+      - run:
+          name: Start container and verify it's working
+          command: |
+            set -x
+            #sudo docker-compose up --build
+            sudo docker-compose --version
