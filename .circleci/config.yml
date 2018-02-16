@@ -9,5 +9,4 @@ jobs:
       - setup_remote_docker
       - run:
           name: Start container and verify it's working
-          command: |
-            sudo docker-compose up --build
+          command: docker-compose up --build
