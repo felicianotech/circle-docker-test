@@ -4,9 +4,6 @@ jobs:
     working_directory: ~/tmp
     docker:
       - image: circleci/node:9.4.0
-    branches:
-      only:
-        - circleci
     steps:
       - checkout
       - setup_remote_docker
