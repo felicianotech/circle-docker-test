@@ -28,5 +28,4 @@ jobs:
           name: Start container and verify it's working
           command: |
             set -x
-            #sudo docker-compose up --build
-            sudo docker-compose --version
+            sudo docker-compose up --build
