@@ -9,4 +9,4 @@ jobs:
           name: Debug
           command: |
             pwd
-            ls -lah
+            ls -lah ~/.ssh/
