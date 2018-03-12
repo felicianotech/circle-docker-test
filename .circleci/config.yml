@@ -4,11 +4,11 @@ jobs:
     docker:
       - image: circleci/python:3
     steps:
-      - checkout
       - run:
-          name: "Run Script That Should Fail in 30 seconds"
-          command: ./fail.sh
+          name: "Set 45 second Build Time Limit"
+          command: sleep 45; exit 1
           background: true
+      - checkout
       - run: |
           sleep 20
           echo "Break 1"
@@ -21,3 +21,7 @@ jobs:
       - run:
           name: "This should never run."
           command: echo "Damn, I ran."
+      - run:
+          name: "Enforce Build Time Limit"
+          command: exit 1
+          when: on_fail
