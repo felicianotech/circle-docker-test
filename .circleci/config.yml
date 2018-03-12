@@ -7,7 +7,8 @@ jobs:
       - checkout
       - run:
           name: "Run Script That Should Fail in 30 seconds"
-          command: ./fail.sh &
+          command: ./fail.sh
+          background: true
       - run: |
           sleep 20
           echo "Break 1"
