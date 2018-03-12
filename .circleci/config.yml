@@ -5,8 +5,8 @@ jobs:
       - image: circleci/python:3
     steps:
       - run:
-          name: "Set 45 second Build Time Limit"
-          command: sleep 45; touch .fail-build; exit 1
+          name: "Set 40 second Build Time Limit"
+          command: sleep 40; touch .fail-build; exit 1
           background: true
       - checkout
       - run: |
