@@ -6,7 +6,7 @@ jobs:
     steps:
       - run:
           name: "Set 45 second Build Time Limit"
-          command: sleep 45; exit 1
+          command: sleep 45; touch .fail-build; exit 1
           background: true
       - checkout
       - run: |
@@ -23,5 +23,5 @@ jobs:
           command: echo "Damn, I ran."
       - run:
           name: "Enforce Build Time Limit"
-          command: exit 1
+          command: if -e .fail-build; then exit 1; fi
           when: always
