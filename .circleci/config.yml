@@ -24,4 +24,4 @@ jobs:
       - run:
           name: "Enforce Build Time Limit"
           command: exit 1
-          when: on_fail
+          when: always
