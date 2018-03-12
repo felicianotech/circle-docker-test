@@ -23,5 +23,5 @@ jobs:
           command: echo "Damn, I ran."
       - run:
           name: "Enforce Build Time Limit"
-          command: if -e .fail-build; then exit 1; fi
+          command: if [ -f .fail-build ]; then exit 1; fi
           when: always
