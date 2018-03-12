@@ -2,12 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: williamyeh/ansible:ubuntu16.04
+      - image: circleci/python:3
     steps:
       - checkout
-      - add_ssh_keys
       - run:
-          name: Debug
-          command: |
-            pwd
-            ls -lah ~/.ssh/
+          name: "Run Script That Should Fail in 30 seconds"
+          command: ./fail.sh &
+      - run: sleep 300
+      - run:
+          name: "This should never run."
+          command: echo "Damn, I ran."
