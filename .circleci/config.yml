@@ -2,13 +2,16 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3
+      - image: circleci/golang:1.10
     steps:
+      - checkout
+      - run:
+          name: "Check Go Formatting"
+          command: ! go fmt ./... 2>&1 | read
       - run:
           name: "Set 40 second Build Time Limit"
           command: sleep 40; touch .fail-build; exit 1
           background: true
-      - checkout
       - run: |
           sleep 20
           echo "Break 1"
