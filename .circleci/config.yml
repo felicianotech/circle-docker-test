@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: "Test Environment Values"
-          command: echo $TEST_VAR
+          command: echo $TEST_VAR; echo $TEST_VAR2
       - run:
           name: "Check Go Formatting"
           command: "! go fmt ./... 2>&1 | read"
