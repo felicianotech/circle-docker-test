@@ -6,11 +6,13 @@ jobs:
         environment:
           - TEST_VAR=chicken
           - TEST_VAR2=pork
+    environment:
+      - TEST_VAR3=beef
     steps:
       - checkout
       - run:
           name: "Test Environment Values"
-          command: echo $TEST_VAR; echo $TEST_VAR2
+          command: echo $TEST_VAR; echo $TEST_VAR2; echo $TEST_VAR3
       - run:
           name: "Check Go Formatting"
           command: "! go fmt ./... 2>&1 | read"
