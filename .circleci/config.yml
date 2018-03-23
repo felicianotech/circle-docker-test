@@ -3,8 +3,13 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.10
+        environment:
+        - TEST_VAR: chicken
     steps:
       - checkout
+      - run:
+          name: "Test Environment Values"
+          command: echo $TEST_VAR
       - run:
           name: "Check Go Formatting"
           command: "! go fmt ./... 2>&1 | read"
