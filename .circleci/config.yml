@@ -4,10 +4,10 @@ jobs:
     docker:
       - image: circleci/golang:1.10
         environment:
-          - TEST_VAR=chicken
-          - TEST_VAR2=pork
+        - TEST_VAR=chicken
+        - TEST_VAR2=pork
     environment:
-      - TEST_VAR3=beef
+      - TEST_VAR3: beef
     steps:
       - checkout
       - run:
