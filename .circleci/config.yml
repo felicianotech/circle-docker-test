@@ -2,13 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.10
+      - image: naftulikay/circleci-lambda-rust:latest
         environment:
           TEST_VAR: chicken
           TEST_VAR2: pork
-      - image: circleci/golang:1.9
-        environment:
-          - TEST_VAR4=goat
     environment:
       - TEST_VAR3: beef
     steps:
