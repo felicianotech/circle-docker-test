@@ -3,11 +3,8 @@ jobs:
   build:
     docker:
       - image: naftulikay/circleci-lambda-rust:latest
-        environment:
-          TEST_VAR: chicken
-          TEST_VAR2: pork
     environment:
-      - TEST_VAR3: beef
+      PATH: /home/circleci/.cargo/bin:/home/circleci/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     steps:
       - checkout
       - run:
