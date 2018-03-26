@@ -8,5 +8,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Setup
+          command: |
+            # emit debugging info
+            bash -x -c 'id && pwd && echo $PATH'
+            bash -x -c 'aws --version'
+      - run:
           name: "Test Environment Values"
           command: echo $TEST_VAR; echo $TEST_VAR2; echo $TEST_VAR3
