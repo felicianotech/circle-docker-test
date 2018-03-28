@@ -2,17 +2,9 @@ version: 2
 jobs:
   build:
     docker:
-      - image: naftulikay/circleci-lambda-rust:latest
-    environment:
-      PATH: /home/circleci/.cargo/bin:/home/circleci/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - image: circleci/golang:1.10
     steps:
       - checkout
       - run:
-          name: Setup
-          command: |
-            # emit debugging info
-            bash -x -c 'id && pwd && echo $PATH'
-            bash -x -c 'aws --version'
-      - run:
-          name: "Test Environment Values"
-          command: echo $TEST_VAR; echo $TEST_VAR2; echo $TEST_VAR3
+          name: "Check Go Formatting"
+          command: "! go fmt ./... 2>&1 | read"
