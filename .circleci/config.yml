@@ -2,9 +2,9 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.10
+      - image: circleci/node:8.9
     steps:
       - checkout
       - run:
-          name: "Check Go Formatting"
-          command: "! go fmt ./... 2>&1 | read"
+          name: "Check Version"
+          command: "node --version"
