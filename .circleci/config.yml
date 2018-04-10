@@ -10,5 +10,5 @@ jobs:
           command: "node --version"
       - save_cache:
           key: test-{{ arch }}
-          path:
+          paths:
             - "main.go"
