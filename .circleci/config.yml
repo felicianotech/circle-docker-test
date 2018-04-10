@@ -8,3 +8,7 @@ jobs:
       - run:
           name: "Check Version"
           command: "node --version"
+      - save_cache:
+          key: test-{{ arch }}
+          path:
+            - "main.go"
