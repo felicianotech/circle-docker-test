@@ -18,12 +18,3 @@ workflows:
   normal:
     jobs:
       - build
-  hourly-workflow-2:
-    triggers:
-      - schedule:
-          cron: "0 * * * *"
-          filters:
-            branches:
-              only: temp/2.0-docker
-    jobs:
-      - build
