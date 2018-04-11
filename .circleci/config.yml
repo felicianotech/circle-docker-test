@@ -12,3 +12,18 @@ jobs:
           key: test-{{ arch }}
           paths:
             - "main.go"
+
+workflows:
+  version: 2
+  normal:
+    jobs:
+      - build
+  houlrly-workflow-1:
+    triggers:
+      - schedule:
+          cron: "0 * * * *"
+          filters:
+            branches:
+              only: 2.0-docker
+    jobs:
+      - build
