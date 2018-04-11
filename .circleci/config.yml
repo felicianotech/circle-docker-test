@@ -18,12 +18,3 @@ workflows:
   normal:
     jobs:
       - build
-  houlrly-workflow-1:
-    triggers:
-      - schedule:
-          cron: "0 * * * *"
-          filters:
-            branches:
-              only: 2.0-docker
-    jobs:
-      - build
