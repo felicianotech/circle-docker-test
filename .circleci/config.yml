@@ -21,5 +21,7 @@ jobs:
               if ! $target_branch == "develop"; then
                 echo "Wrong PR target."
                 exit 1
+              else
+                echo "Correct target for PR is used."
               fi
             fi
