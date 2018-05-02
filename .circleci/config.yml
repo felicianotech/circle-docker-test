@@ -10,4 +10,4 @@ jobs:
           command: |
             echo $CIRCLE_PULL_REQUEST
             echo "---------------------------------------------"
-            echo $CIRCLE_PULL_REQUESTS
+            echo $CIRCLE_COMPARE_URL
