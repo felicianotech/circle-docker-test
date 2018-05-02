@@ -24,4 +24,6 @@ jobs:
               else
                 echo "Correct target for PR is used."
               fi
+            else
+              echo "This isn't a PR build."
             fi
