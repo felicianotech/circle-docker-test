@@ -14,6 +14,7 @@ jobs:
       - run:
           name: "Target Branch Check"
           command: |
+            echo "The value of CIRCLE_PR_NUMBER is: $CIRCLE_PR_NUMBER"
             if [[ -n $CIRCLE_PR_NUMBER ]]; then
               url="https://api.github.com/repos/$ORG/$PROJECT/pulls/$CIRCLE_PR_NUMBER?access_token=$GITHUB_TOKEN"
               target_branch=$( curl "$url" | ./jq '.base.ref' | tr -d '"' )
