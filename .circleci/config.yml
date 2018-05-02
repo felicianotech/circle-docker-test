@@ -6,6 +6,25 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Check Envar"
+          name: "Check Envars"
           command: |
             echo $CIRCLE_PULL_REQUEST
+            echo "---------------------------------------------"
+            echo $CIRCLE_COMPARE_URL
+      - run:
+          name: "Target Branch Check"
+          command: |
+            echo "The value of CIRCLE_PR_NUMBER is: $CIRCLE_PR_NUMBER"
+            if [[ -n $CIRCLE_PR_NUMBER ]]; then
+              url="https://api.github.com/repos/$ORG/$PROJECT/pulls/$CIRCLE_PR_NUMBER?access_token=$GITHUB_TOKEN"
+              target_branch=$( curl "$url" | ./jq '.base.ref' | tr -d '"' )
+
+              if ! $target_branch == "develop"; then
+                echo "Wrong PR target."
+                exit 1
+              else
+                echo "Correct target for PR is used."
+              fi
+            else
+              echo "This isn't a PR build."
+            fi
