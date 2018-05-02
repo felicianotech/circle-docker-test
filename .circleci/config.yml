@@ -9,3 +9,5 @@ jobs:
           name: "Check Envars"
           command: |
             echo $CIRCLE_PULL_REQUEST
+            echo "---------------------------------------------"
+            echo $CIRCLE_PULL_REQUEST
