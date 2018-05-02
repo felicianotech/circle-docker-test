@@ -6,6 +6,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Check Envar"
+          name: "Check Envars"
           command: |
             echo $CIRCLE_PULL_REQUEST
