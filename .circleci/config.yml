@@ -8,4 +8,5 @@ jobs:
       - run:
           name: "Check Envar"
           command: |
-            echo $CIRCLE_PULL_REQUEST
+            echo $CIRCLE_WORKING_DIRECTORY
+            TESTING=${CIRCLE_WORKING_DIRECTORY}"/test-dir"
