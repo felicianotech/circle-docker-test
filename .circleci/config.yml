@@ -8,6 +8,8 @@ jobs:
       - run:
           name: "Check Envar"
           command: |
+            echo $CIRCLE_WORKING_DIRECTORY
             CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"
+            echo $CIRCLE_WORKING_DIRECTORY
             mkdir -p $CIRCLE_WORKING_DIRECTORY/foo/bar
             ls -lah
