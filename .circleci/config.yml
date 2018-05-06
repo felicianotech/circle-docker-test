@@ -10,6 +10,5 @@ jobs:
           command: |
             TESTING3=$( echo $CIRCLE_WORKING_DIRECTORY )"/test-dir"
             echo $TESTING3
-            cd $CIRCLE_WORKING_DIRECTORY
             mkdir -p $CIRCLE_WORKING_DIRECTORY/foo/bar
             ls -lah
