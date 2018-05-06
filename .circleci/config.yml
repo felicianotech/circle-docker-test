@@ -10,3 +10,5 @@ jobs:
           command: |
             echo $CIRCLE_WORKING_DIRECTORY
             TESTING=${CIRCLE_WORKING_DIRECTORY}"/test-dir"
+            echo $TESTING
+            TESTING2=$( CIRCLE_WORKING_DIRECTORY )"/test-dir"
