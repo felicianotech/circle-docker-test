@@ -11,4 +11,7 @@ jobs:
             echo $CIRCLE_WORKING_DIRECTORY
             TESTING=${CIRCLE_WORKING_DIRECTORY}"/test-dir"
             echo $TESTING
-            TESTING2=$( CIRCLE_WORKING_DIRECTORY )"/test-dir"
+            TESTING2=$( $CIRCLE_WORKING_DIRECTORY )"/test-dir"
+            echo $TESTING2
+            TESTING3=$( echo $CIRCLE_WORKING_DIRECTORY )"/test-dir"
+            echo $TESTING3
