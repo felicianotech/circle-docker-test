@@ -8,5 +8,4 @@ jobs:
       - run:
           name: "Check Envar"
           command: |
-            bundler
             bundle
