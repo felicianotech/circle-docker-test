@@ -2,23 +2,11 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.10
+      - image: circleci/android:api-27-node8-alpha
     steps:
       - checkout
       - run:
           name: "Check Envar"
           command: |
-            echo $CIRCLE_WORKING_DIRECTORY
-            CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"
-            echo $CIRCLE_WORKING_DIRECTORY
-            mkdir -p $CIRCLE_WORKING_DIRECTORY/foo/bar
-            ls -lah
-      - run:
-          name: "Check Envar"
-          command: |
-            echo $CIRCLE_WORKING_DIRECTORY
-            echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
-      - run:
-          name: "Check Envar"
-          command: |
-            echo $CIRCLE_WORKING_DIRECTORY
+            bundler
+            bundle
