@@ -8,5 +8,4 @@ jobs:
       - run:
           name: "Test"
           command: |
-            free -m
             cat /var/log/mysql
