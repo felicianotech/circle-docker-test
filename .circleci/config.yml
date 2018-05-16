@@ -2,10 +2,11 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/android:api-27-node8-alpha
+      - image: circleci/mysql:5.7.22-ram
     steps:
       - checkout
       - run:
-          name: "Check Envar"
+          name: "Test"
           command: |
-            bundle
+            free -m
+            cat /var/log/mysql
