@@ -1,11 +1,12 @@
 version: 2
+workflows:
+  version: 2
+  hello-workflow:
+    jobs:
+    - helloworld/sayhello
 jobs:
-  build:
-    docker:
-      - image: circleci/mysql:5.7.22-ram
+  sayhello:
+    machine: true
     steps:
-      - checkout
-      - run:
-          name: "Test"
-          command: |
-            cat /var/log/mysql
+    - run:
+        command: echo Hello World
