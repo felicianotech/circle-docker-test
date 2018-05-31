@@ -1,12 +1,8 @@
 version: 2
-workflows:
-  version: 2
-  hello-workflow:
-    jobs:
-    - helloworld/sayhello
 jobs:
-  sayhello:
-    machine: true
+  build:
+    macos:
+      xcode: "9.3.1"
     steps:
-    - run:
-        command: echo Hello World
+      - run:
+          command: echo Hello World
