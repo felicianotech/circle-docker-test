@@ -5,4 +5,4 @@ jobs:
       xcode: "9.4.0"
     steps:
       - run:
-          command: echo Hello World
+          command: echo "Hello World!"
