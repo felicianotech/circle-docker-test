@@ -8,18 +8,18 @@ jobs:
       - run:
           name: "Test"
           command: |
-            if $CIRCLE_TAG; then
+            if [ ! -z $CIRCLE_TAG]; then
               echo "We detect the variable when it doesn't exists."
             fi
 
             CIRCLE_TAG=""
 
-            if $CIRCLE_TAG; then
+            if [ ! -z $CIRCLE_TAG]; then
               echo "We detect the variable when it's an empty string."
             fi
 
             CIRCLE_TAG="v1.0.1"
 
-            if $CIRCLE_TAG; then
+            if [ ! -z $CIRCLE_TAG]; then
               echo "We detect the variable when it has a value, duh."
             fi
