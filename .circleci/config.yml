@@ -8,7 +8,7 @@ jobs:
       - run:
           name: "Test"
           command: |
-            if [ ! -z $CIRCLE_TAG]; then
+            if [[ ! -z $CIRCLE_TAG ]]; then
               echo "We detect the variable when it doesn't exists."
             fi
 
