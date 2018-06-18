@@ -2,10 +2,24 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/mysql:5.7.22-ram
+      - image: circleci/golang:1.10
     steps:
       - checkout
       - run:
           name: "Test"
           command: |
-            cat /var/log/mysql
+            if $CIRCLE_TAG; then
+              echo "We detect the variable when it doesn't exists."
+            fi
+
+            CIRCLE_TAG=""
+
+            if $CIRCLE_TAG; then
+              echo "We detect the variable when it's an empty string."
+            fi
+
+            CIRCLE_TAG="v1.0.1"
+
+            if $CIRCLE_TAG; then
+              echo "We detect the variable when it has a value, duh."
+            fi
