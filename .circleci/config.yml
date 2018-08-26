@@ -2,24 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.10.1
+      - image: circleci/golang:1.10
     steps:
       - checkout
       - run:
           name: "Test"
           command: |
-            if [[ ! -z $CIRCLE_TAG ]]; then
-              echo "We detect the variable when it doesn't exists."
-            fi
-
-            CIRCLE_TAG=""
-
-            if [ ! -z $CIRCLE_TAG ]; then
-              echo "We detect the variable when it's an empty string."
-            fi
-
-            CIRCLE_TAG="v1.0.1"
-
-            if [ ! -z "$CIRCLE_TAG" ]; then
-              echo "We detect the variable when it has a value, duh."
-            fi
+            echo $PATH
