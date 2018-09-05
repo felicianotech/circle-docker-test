@@ -2,10 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.10
+      - image: circleci/node:8.9.1
     steps:
       - checkout
       - run:
           name: "Test"
           command: |
-            echo $PATH
+            pwd
