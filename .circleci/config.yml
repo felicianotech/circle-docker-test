@@ -1,3 +1,10 @@
+workflows:
+  version: 2
+  jobs:
+    main:
+      - build
+
+
 version: 2
 jobs:
   build:
