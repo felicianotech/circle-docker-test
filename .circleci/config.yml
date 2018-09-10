@@ -3,10 +3,10 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.11
-    branches:
-      only:
-        - develop
-    working_directory: ~/repo
     steps:
       - checkout
-      - run: echo "Hi"
+      - run: mkdir $HOME/test-dir; touch ./test-dir/file.txt
+      - persist_to_workspace:
+          root: .
+          paths:
+            - $HOME/test-dir
