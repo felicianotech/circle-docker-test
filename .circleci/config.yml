@@ -7,6 +7,6 @@ jobs:
       - checkout
       - run: mkdir $HOME/test-dir; touch $HOME/test-dir/file.txt; ls -lah $HOME; ls -lah; pwd
       - persist_to_workspace:
-          root: .
+          root: $HOME
           paths:
-            - $HOME/test-dir
+            - test-dir
