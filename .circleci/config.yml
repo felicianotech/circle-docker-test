@@ -9,13 +9,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: alpine:3.8
+      - image: circleci/golang:1.11
     steps:
       - checkout
       - run: |
           echo $BASH_ENV
-          cat $BASH_ENV
           echo 'export TEST_VAR="chicken"' >> $BASH_ENV
+          cat $BASH_ENV
           echo $TEST_VAR
       - run: |
           echo $TEST_VAR
