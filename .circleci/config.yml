@@ -21,3 +21,4 @@ jobs:
           echo $TEST_VAR
       - run: |
           echo $TEST_VAR
+          which bash
