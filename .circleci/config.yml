@@ -9,16 +9,20 @@ version: 2
 jobs:
   build:
     docker:
-      - image: golang:1.11
+      - image: alpine:3.8
     steps:
       - checkout
-      #- run: |
-      #    apk update && apk add bash
       - run: |
-          echo $BASH_ENV
-          echo 'export TEST_VAR="chicken"' >> $BASH_ENV
-          cat $BASH_ENV
-          echo $TEST_VAR
-      - run: |
-          echo $TEST_VAR
-          which bash
+          apk update && apk add bash
+      - run:
+          shell: "/bin/bash -eo pipefail"
+          command: |
+            echo $BASH_ENV
+            echo 'export TEST_VAR="chicken"' >> $BASH_ENV
+            cat $BASH_ENV
+            echo $TEST_VAR
+      - run: 
+          shell: "/bin/bash -eo pipefail"
+          command: |
+            echo $TEST_VAR
+            which bash
