@@ -13,6 +13,8 @@ jobs:
     steps:
       - checkout
       - run: |
+          echo $BASH_ENV
+          cat $BASH_ENV
           echo 'export TEST_VAR="chicken"' >> $BASH_ENV
           echo $TEST_VAR
       - run: |
