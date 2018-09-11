@@ -9,11 +9,11 @@ version: 2
 jobs:
   build:
     docker:
-      - image: alpine:3.8
+      - image: golang:1.11
     steps:
       - checkout
-      - run: |
-          apk update && apk add bash
+      #- run: |
+      #    apk update && apk add bash
       - run: |
           echo $BASH_ENV
           echo 'export TEST_VAR="chicken"' >> $BASH_ENV
