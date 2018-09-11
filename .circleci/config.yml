@@ -9,11 +9,11 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.11
+      - image: circleci/golang:1.11-alpine
     steps:
       - checkout
-      - run: mkdir $HOME/test-dir; touch $HOME/test-dir/file.txt; ls -lah $HOME; ls -lah; pwd
-      - persist_to_workspace:
-          root: /
-          paths:
-            - $HOME/test-dir
+      - run: |
+          echo 'export TEST_VAR="chicken"' >> $BASH_ENV
+          echo $TEST_VAR
+      - run: |
+          echo $TEST_VAR
