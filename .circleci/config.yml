@@ -13,6 +13,8 @@ jobs:
     steps:
       - checkout
       - run: |
+          apk update && apk add bash
+      - run: |
           echo $BASH_ENV
           echo 'export TEST_VAR="chicken"' >> $BASH_ENV
           cat $BASH_ENV
