@@ -1,27 +1,45 @@
-workflows:
-  version: 2
-  main:
-    jobs:
-      - build
-
-
 version: 2
 jobs:
-  build:
+  node:
+    working_directory: ~/some-app
+
     docker:
-      - image: alpine:3.8
+      - image: circleci/node:8.9
+
     steps:
       - checkout
-      - run: |
-          apk update && apk add bash
+
+      - restore_cache:
+          key: npm-v1-{{ checksum "package-lock.json" }}-{{ arch }}
+
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+
+      - run: npm install
+
+      - save_cache:
+          key: npm-v1-{{ checksum "package-lock.json" }}-{{ arch }}
+          paths:
+            - ~/.cache/npm
+
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
+
       - run:
-          shell: "/bin/bash -eo pipefail"
+          name: linters
           command: |
-            echo $BASH_ENV
-            echo 'export TEST_VAR="chicken"' >> $BASH_ENV
-            cat $BASH_ENV
-            echo $TEST_VAR
-      - run: 
-          shell: "/bin/bash -eo pipefail"
-          command: |
-            echo $TEST_VAR
+            npm run lint
+            npm run flow
+
+      - persist_to_workspace:
+          root: ~/some-app
+          paths:
+            - node_modules
+
+workflows:
+  version: 2
+  node-android-ios:
+    jobs:
+      - node
