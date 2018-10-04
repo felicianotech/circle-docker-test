@@ -4,12 +4,13 @@ jobs:
     docker:
       - image: circleci/golang:1.11
       - image: circleci/postgres:10
+        environment:
+          PGPORT: 5555
     steps:
       - checkout
       - run:
           name: Debug
           command: |
-            sleep 30
+            sleep 32
             ps aux
-            sudo apt update && sudo apt install net-tools
             sudo netstat -plntu
