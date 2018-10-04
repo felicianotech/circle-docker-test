@@ -1,6 +1,6 @@
 version: 2.0
 jobs:
-  main-job:
+  build:
     docker:
       - image: circleci/golang:1.11
       - image: circleci/postgres:10
