@@ -1,4 +1,4 @@
-version: 2.3
+version: "2.3"
 jekyll:
     image: jekyll/jekyll:3.8.3
     command: jekyll serve --watch --incremental
