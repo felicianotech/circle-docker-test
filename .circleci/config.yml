@@ -1,14 +1,13 @@
 version: 2
 jobs:
   build:
-    machine:
-      image: circleci/classic:201808-01
+    machine: true
     steps:
       - checkout
       - run:
           name: "Prep"
           command: |
-            sudo apt-get update && sudo apt-get install libssl-dev
+            sudo apt-get update && sudo apt-get install libssl1.0-dev
             cd /opt/circleci/.pyenv/plugins/python-build/../.. && git pull
       - run:
           name: "Switch to Python v3.7"
