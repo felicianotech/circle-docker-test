@@ -4,7 +4,13 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: |
-          cd /opt/circleci/.pyenv/plugins/python-build/../.. && git pull && cd -
+      - run:
+          name: "Prep"
+          command: |
+            sudo apt-get update && sudo apt-get install libssl-dev
+            cd /opt/circleci/.pyenv/plugins/python-build/../.. && git pull
+      - run:
+          name: "Switch to Python v3.7"
+          command: |
           pyenv install 3.7.0
           pyenv global 3.7.0
