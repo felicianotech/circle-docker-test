@@ -1,17 +1,12 @@
 version: 2
 jobs:
   build:
-    machine: true
+    machine:
+      image: circleci/classic:201808-01
     steps:
       - checkout
-      - run:
-          name: "Prep"
-          command: |
-            sudo apt-get update && sudo apt-get remove -y libssl-dev && sudo apt-get install -y libssl-dev
-            cd /opt/circleci/.pyenv/plugins/python-build/../.. && git pull
       - run:
           name: "Switch to Python v3.7"
           command: |
             pyenv versions
-            pyenv install 3.7.0
             pyenv global 3.7.0
