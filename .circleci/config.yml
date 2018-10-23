@@ -5,5 +5,6 @@ jobs:
     steps:
       - checkout
       - run: |
+          cd /opt/circleci/.pyenv/plugins/python-build/../.. && git pull && cd -
           pyenv install 3.7.0
           pyenv global 3.7.0
