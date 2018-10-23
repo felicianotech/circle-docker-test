@@ -12,5 +12,6 @@ jobs:
       - run:
           name: "Switch to Python v3.7"
           command: |
+            pyenv versions
             pyenv install 3.7.0
             pyenv global 3.7.0
