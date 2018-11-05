@@ -8,6 +8,6 @@ jobs:
       - run:
           name: "Playing with Apt"
           command: |
-            sudo apt-get install hugo
+            #sudo apt-get install hugo
             sudo apt-get update
             sudo apt-get install hugo
