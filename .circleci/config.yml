@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  irc: cci-orbs/irc@0.0.3
-
 workflows:
   main:
     jobs:
@@ -13,10 +10,9 @@ jobs:
       - image: cibuilds/base:2018.11
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 18.09.0-ce
       - run:
           name: "Testing Orbs"
           command: |
             echo "Hi"
-      - irc/notify:
-          server: "irc.oftc.net"
-          channel: "testor"
