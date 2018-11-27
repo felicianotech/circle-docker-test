@@ -1,16 +1,22 @@
-version: 2.0
+version: 2.1
+
+orbs:
+  irc: cci-orbs/irc@0.0.3
+
+workflows:
+  main:
+    jobs:
+      - build
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.11
-      - image: circleci/postgres:10
-        environment:
-          PGPORT: 5555
+      - image: cibuilds/base:2018.11
     steps:
       - checkout
       - run:
-          name: Debug
+          name: "Testing Orbs"
           command: |
-            sleep 32
-            ps aux
-            sudo netstat -plntu
+            echo "Hi"
+      - irc/notify:
+          server: "irc.freenode.net"
+          channel: "testor"
