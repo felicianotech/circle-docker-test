@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  hugo: felicianotech/hugo@0.0.3
+  hugo: felicianotech/hugo@0.0.4
 
 workflows:
   main:
