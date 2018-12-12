@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  hugo: felicianotech/hugo@0.0.1
+  hugo: felicianotech/hugo@0.0.2
 
 workflows:
   main:
@@ -9,7 +9,7 @@ workflows:
       - build
 jobs:
   build:
-    executor: default
+    executor: hugo-image
     steps:
       - checkout
       - run:
