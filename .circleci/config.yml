@@ -1,18 +1,22 @@
 version: 2.1
 
+orbs:
+  hugo: felicianotech/hugo@0.0.1
+
 workflows:
   main:
     jobs:
       - build
 jobs:
   build:
-    docker:
-      - image: cibuilds/base:2018.11
+    executor: default
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 18.09.0
       - run:
           name: "Testing Orbs"
           command: |
             echo "Hi"
+      - run:
+          name: "Testing Orbs"
+          command: |
+            hugo version
