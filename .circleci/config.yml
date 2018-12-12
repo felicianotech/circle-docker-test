@@ -9,7 +9,7 @@ workflows:
       - build
 jobs:
   build:
-    executor: hugo-image
+    executor: hugo/hugo-image
     steps:
       - checkout
       - run:
