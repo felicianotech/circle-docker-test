@@ -16,7 +16,7 @@ jobs:
                 command: |
                   sleep 32
                   ps aux
-                  sudo netstat -plntu
+                  netstat -plntu
             - run:
                 name: test
                 command: |
