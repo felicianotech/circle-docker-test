@@ -1,16 +1,27 @@
-version: 2.0
+version: 2
 jobs:
-  build:
-    docker:
-      - image: circleci/golang:1.11
-      - image: circleci/postgres:10
-        environment:
-          PGPORT: 5555
-    steps:
-      - checkout
-      - run:
-          name: Debug
-          command: |
-            sleep 32
-            ps aux
-            sudo netstat -plntu
+    build:
+        docker:
+            - image: docker:18.09.2-git
+            - image: docker.elastic.co/elasticsearch/elasticsearch:6.6.0
+              name: elasticsearch
+
+        working_directory: ~/project
+        steps:
+            - checkout
+            - setup_remote_docker:
+                docker_layer_caching: true
+
+            - run:
+                name: test
+                command: |
+                    docker run --rm \
+                        --network host \
+                        byrnedo/alpine-curl \
+                        elasticsearch:9200
+            - run:
+                name: Debug
+                command: |
+                  sleep 32
+                  ps aux
+                  sudo netstat -plntu
