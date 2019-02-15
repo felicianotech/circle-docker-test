@@ -18,7 +18,7 @@ jobs:
                     docker run --rm \
                         --network host \
                         byrnedo/alpine-curl \
-                        elasticsearch:9200
+                        localhost:9200
             - run:
                 name: Debug
                 command: |
