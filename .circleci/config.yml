@@ -11,7 +11,12 @@ jobs:
             - checkout
             - setup_remote_docker:
                 docker_layer_caching: true
-
+            - run:
+                name: Debug
+                command: |
+                  sleep 32
+                  ps aux
+                  sudo netstat -plntu
             - run:
                 name: test
                 command: |
@@ -19,9 +24,3 @@ jobs:
                         --network host \
                         byrnedo/alpine-curl \
                         localhost:9200
-            - run:
-                name: Debug
-                command: |
-                  sleep 32
-                  ps aux
-                  sudo netstat -plntu
