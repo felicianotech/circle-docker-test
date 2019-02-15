@@ -3,6 +3,7 @@ jobs:
     build:
         docker:
             - image: docker:18.09.2-git
+            - image: circleci/postgres:10
             - image: docker.elastic.co/elasticsearch/elasticsearch:6.6.0
               name: elasticsearch
 
@@ -12,15 +13,11 @@ jobs:
             - setup_remote_docker:
                 docker_layer_caching: true
             - run:
+                name: test
+                command: docker run -d mariadb:10
+            - run:
                 name: Debug
                 command: |
                   sleep 32
                   ps aux
                   netstat -plntu
-            - run:
-                name: test
-                command: |
-                    docker run --rm \
-                        --network host \
-                        byrnedo/alpine-curl \
-                        localhost:9200
