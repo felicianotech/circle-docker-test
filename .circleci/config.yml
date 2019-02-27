@@ -9,7 +9,7 @@ jobs:
       - run:
           name: "Install Node.js v11"
           command: |
-            curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | tar -xJ -C /usr/local/bin node-v11.10.0-linux-x64/bin/node
+            curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | tar -xJ -node-v11.10.0-linux-x64/bin/node -C /usr/local/bin/
             mkdir $HOME/.nvm; echo 'export NVM_DIR=$HOME/.nvm' >> $BASH_ENV
             echo 'source $NVM_DIR/nvm.sh' >> $BASH_ENV
       - run: which node; which nodejs; node -v
