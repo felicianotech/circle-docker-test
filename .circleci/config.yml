@@ -5,22 +5,11 @@ jobs:
       - image: circleci/ruby:2.4.2-jessie-node
     steps:
       - checkout
-      - run: which node; which nodejs
+      - run: which node; which nodejs; node -v
       - run:
-          name: Setup dirs + env_vars for NVM installation.
+          name: "Install Node.js v11"
           command: |
+            curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | tar -xJ -C /usr/local/bin bin/node
             mkdir $HOME/.nvm; echo 'export NVM_DIR=$HOME/.nvm' >> $BASH_ENV
             echo 'source $NVM_DIR/nvm.sh' >> $BASH_ENV
-      - run:
-          name: Check current version of node
-          command: node -v
-      - run:
-          name: Get + install node version manager.
-          command: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-      - run:
-          name: Install a different version of node.
-          command: nvm install 6.14.4
-      - run:
-          name: Indidcate which version of node to use.
-          command: nvm use 6.14.4; node -v # < success: running `nvm use X.xx.x` followed by a node command in the same statement works.
-      - run: node -v # << problem: successive `run`  commands don't use the newly set verison of node.
+      - run: which node; which nodejs; node -v
