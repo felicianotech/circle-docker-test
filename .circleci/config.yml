@@ -5,9 +5,10 @@ jobs:
       - image: circleci/ruby:2.4.2-jessie-node
     steps:
       - checkout
-      - run: which node; which nodejs; node -v
+      - run: node -v; npm -v
       - run:
           name: "Install Node.js v11"
           command: |
+            npm install -g npm
             curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
-      - run: which node; which nodejs; node -v
+      - run: node -v; npm -v
