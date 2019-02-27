@@ -1,15 +1,33 @@
 version: 2.0
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+      - tag-only:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
 jobs:
   build:
     docker:
       - image: circleci/ruby:2.4.2-jessie-node
     steps:
       - checkout
-      - run: node -v; npm -v
       - run:
-          name: "Install Node.js v11"
+          name: "Let's tag things!"
           command: |
-            #sudo npm install -g npm@latest
-            curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
-            curl https://www.npmjs.com/install.sh | sudo bash
-      - run: node -v; npm -v
+            git tag v1
+            git push -u origin v1
+  tag-only:
+    docker:
+      - image: circleci/golang:1.12
+    steps:
+      - run: "This only runs on tags."
