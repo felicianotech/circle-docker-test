@@ -22,7 +22,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Let's tag things!"
+          name: "Let's tag things!!"
           command: |
             git tag v1
             git push -u origin v1
