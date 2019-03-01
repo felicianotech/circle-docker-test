@@ -24,8 +24,10 @@ jobs:
       - run:
           name: "Let's tag things!!"
           command: |
-            git tag v1
-            git push -u origin v1
+            if [ -z "$CIRCLE_TAG" ]; then
+              git tag v1
+              git push -u origin v1
+            fi
   tag-only:
     docker:
       - image: circleci/golang:1.12
