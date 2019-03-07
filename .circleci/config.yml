@@ -2,12 +2,10 @@ version: 2
 jobs:
   build:
     machine:
-      image: circleci/classic:201808-01
+      image: circleci/classic:latest
     steps:
       - checkout
       - run:
           name: "Playing with Apt"
           command: |
-            #sudo apt-get install hugo
             sudo apt-get update
-            sudo apt-get install hugo
