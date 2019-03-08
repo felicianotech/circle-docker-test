@@ -10,7 +10,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cibuilds/base
+      - image: ubuntu:18.04
     steps:
       - checkout
       - run:
