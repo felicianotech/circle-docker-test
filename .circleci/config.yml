@@ -13,7 +13,7 @@ jobs:
       - image: ubuntu:18.04
     steps:
       - checkout
-      - run: whoami; apt-get update && apt-get install -y sudo
+      - run: whoami; apt-get update && apt-get install -y sudo curl
       - run:
           name: "Saying Hi"
           command: |
