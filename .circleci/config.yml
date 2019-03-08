@@ -13,6 +13,7 @@ jobs:
       - image: ubuntu:18.04
     steps:
       - checkout
+      - run: whoami; apt-get update && apt-get install -y sudo
       - run:
           name: "Saying Hi"
           command: |
