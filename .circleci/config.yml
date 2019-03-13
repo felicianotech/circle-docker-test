@@ -18,4 +18,4 @@ jobs:
           command: |
             echo "Hi"
       - cli/install
-      - run: circleci diagnostic
+      - run: circleci --skip-update-check diagnostic
