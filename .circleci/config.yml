@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  cli: circleci/circleci-cli@0.1.3
+  cli: felicianotech/jekyll@dev:cli
 
 workflows:
   main:
@@ -10,10 +10,9 @@ workflows:
 jobs:
   build:
     docker:
-      - image: ubuntu:18.04
+      - image: cibuilds/base
     steps:
       - checkout
-      - run: whoami; apt-get update && apt-get install -y sudo curl
       - run:
           name: "Saying Hi"
           command: |
