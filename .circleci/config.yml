@@ -12,5 +12,5 @@ jobs:
       - checkout
       - run:
           command: |
-            git submodule sync
+            #git submodule sync
             git submodule update --init
