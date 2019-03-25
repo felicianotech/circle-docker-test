@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  cli: felicianotech/jekyll@dev:cli
-
 workflows:
   main:
     jobs:
@@ -14,8 +11,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Saying Hi"
           command: |
-            echo "Hi"
-      - cli/install
-      - run: circleci --skip-update-check diagnostic
+            git submodule sync
+            git submodule update --init
