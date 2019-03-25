@@ -1,15 +1,7 @@
 version: 2.1
-
+orbs:
+    hello: circleci/hello-build@0.0.5
 workflows:
-  main:
-    jobs:
-      - build
-jobs:
-  build:
-    docker:
-      - image: cibuilds/base
-    steps:
-      - checkout
-      - run:
-          command: |
-            git submodule update --recursive --init
+    "Hello Workflow":
+        jobs:
+          - hello/hello-build
