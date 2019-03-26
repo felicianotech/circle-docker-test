@@ -4,32 +4,12 @@ workflows:
   main:
     jobs:
       - build:
-          filters:
-            tags:
-              only: /.*/
-      - tag-only:
-          requires:
-            - build
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /.*/
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.4.2-jessie-node
+      - image: circleci/python:3.6.2-stretch
     steps:
       - checkout
       - run:
-          name: "Let's tag things!!"
-          command: |
-            if [ -z "$CIRCLE_TAG" ]; then
-              git tag v3
-              git push -u origin v3
-            fi
-  tag-only:
-    docker:
-      - image: circleci/golang:1.12
-    steps:
-      - run: "This only runs on tags."
+          name: "Let's test things!!"
+          command: sudo apt-get update
