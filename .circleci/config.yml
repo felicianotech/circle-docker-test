@@ -8,7 +8,7 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.12
-      - image: circleci/mongo:3.6-xenial
+      - image: circleci/mongo:4.0-xenial
     steps:
       - checkout
       - run:
