@@ -6,3 +6,4 @@ jobs:
     steps:
       - run:
           command: echo "Hello World!!"
+      - run: curl https://sh.rustup.rs -sSf | sh
