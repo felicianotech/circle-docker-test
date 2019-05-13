@@ -6,4 +6,3 @@ jobs:
     steps:
       - run:
           command: echo "Hello World!!"
-      - run: curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable
