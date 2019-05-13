@@ -10,7 +10,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cibuilds/base
+      - image: debian:stretch
     steps:
       - run: echo "Hi"
       - run: echo $MY_CUSTOM_VAR
