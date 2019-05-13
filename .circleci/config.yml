@@ -1,7 +1,14 @@
 version: 2.1
-orbs:
-    hello: circleci/hello-build@0.0.13
+
 workflows:
-    "Hello Workflow":
-        jobs:
-          - hello/hello-build
+  main:
+    jobs:
+      - build
+
+jobs:
+  build:
+    docker:
+      - image: cibuilds/base
+    steps:
+      - run: echo "Hi"
+      - run: echo $MY_CUSTOM_VAR
