@@ -3,7 +3,9 @@ version: 2.1
 workflows:
   main:
     jobs:
-      - build
+      - build:
+        environment:
+          MY_CUSTOM_VAR: "bye"
 
 jobs:
   build:
