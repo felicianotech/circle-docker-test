@@ -1,11 +1,12 @@
 version: 2
 jobs:
   build:
-    machine:
-      image: circleci/classic:latest
+    machine: true
     steps:
       - checkout
       - run:
-          name: "Playing with Apt"
+          name: "Testing"
           command: |
-            sudo apt-get update
+            echo "Hi"
+            cat /etc/os-release
+            apt-get update
