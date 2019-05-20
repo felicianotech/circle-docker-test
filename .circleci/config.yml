@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  hugo: circleci/hugo:0.3.0
+
 workflows:
   main:
     jobs:
@@ -12,3 +15,6 @@ jobs:
     steps:
       - run:
           command: echo "Hello World!!"
+      - hugo/install
+      - run: hugo version
+      - run: hugo new site
