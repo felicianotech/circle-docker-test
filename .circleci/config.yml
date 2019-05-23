@@ -10,9 +10,9 @@ workflows:
 
 jobs:
   build:
-    #docker:
-    #  - image: circleci/golang:1.12
-    machine: true
+    docker:
+      - image: circleci/golang:1.12
+    #machine: true
     steps:
       - gcp/install
       - run: gcloud version
