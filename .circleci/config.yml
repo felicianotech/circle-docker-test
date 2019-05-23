@@ -1,7 +1,17 @@
 version: 2.1
+
 orbs:
-    hello: circleci/hello-build@0.0.13
+    gcp: circleci/gcp-cli@volatile
+
 workflows:
-    "Hello Workflow":
-        jobs:
-          - hello/hello-build
+  main:
+    jobs:
+      - build
+
+jobs:
+  build:
+    docker:
+      - image: cibuilds/base
+    steps:
+      - gcp/install
+      - run: gcloud version
