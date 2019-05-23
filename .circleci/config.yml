@@ -11,7 +11,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cibuilds/base
+      - image: circleci/golang:1.12
     steps:
       - gcp/install
       - run: gcloud version
