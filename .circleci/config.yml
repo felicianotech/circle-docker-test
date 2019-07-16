@@ -3,14 +3,11 @@ version: 2.1
 workflows:
   main:
     jobs:
-      - build:
-        environment:
-          MY_CUSTOM_VAR: "bye"
+      - build
 
 jobs:
   build:
     docker:
-      - image: ubuntu:disco
+      - image: circleci/node:10
     steps:
       - run: echo "Hi"
-      - run: echo $MY_CUSTOM_VAR
