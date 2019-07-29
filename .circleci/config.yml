@@ -16,3 +16,4 @@ jobs:
     steps:
       - go/install
       - run: go version
+      - go/test
