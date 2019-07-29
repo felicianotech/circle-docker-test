@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-    gcp: circleci/gcp-cli@1.0.2
+    go: circleci/go@0.1.0
 
 workflows:
   main:
@@ -11,8 +11,8 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.12
+      - image: circleci/python:3
     #machine: true
     steps:
-      - gcp/install
-      - run: gcloud version
+      - go/install
+      - run: go version
