@@ -9,7 +9,8 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.12
-      - image: cimg/mariadb:10.1
+        #- image: cimg/mariadb:10.1
+      - image: circleci/mariadb:10.1
     steps:
       - run: |
           sudo apt-get update && sudo apt-get install -y mariadb-client
