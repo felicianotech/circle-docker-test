@@ -12,3 +12,4 @@ jobs:
       - image: cimg/mariadb:10.1
     steps:
       - run: sudo apt update && sudo install mysql-client
+      # Then test with SSH
