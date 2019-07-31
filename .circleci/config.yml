@@ -13,4 +13,4 @@ jobs:
     steps:
       - run: |
           sudo apt-get update && sudo apt-get install -y mariadb-client
-          echo "Now test with SSH"
+          echo "Now test with SSH."
