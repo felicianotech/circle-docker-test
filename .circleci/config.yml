@@ -11,5 +11,5 @@ jobs:
       - image: circleci/golang:1.12
       - image: cimg/mariadb:10.1
     steps:
-      - run: sudo apt update && sudo apt install -y mysql-client
+      - run: sudo apt-get update && sudo apt-get install -y mysql-client
       # Then test with SSH
