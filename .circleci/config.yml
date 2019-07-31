@@ -8,6 +8,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/node:10
+      - image: circleci/golang:1.12
+      - image: cimg/mariadb:10.1
     steps:
-      - run: echo "Hi"
+      - run: sudo apt update && sudo install mysql-client
