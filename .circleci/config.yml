@@ -14,6 +14,7 @@ jobs:
       - image: circleci/python:3
     #machine: true
     steps:
+      - run: sudo apt update && sudo apt install -y software-properties-common
       - php/install
       - run: php -v
       - php/install-composer
