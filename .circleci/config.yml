@@ -9,5 +9,4 @@ jobs:
           name: "Testing"
           command: |
             echo "Hi"
-            cat /etc/os-release
-            sudo apt-get update
+            docker-compose version
