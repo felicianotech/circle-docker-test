@@ -8,9 +8,13 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/mariadb:10.1
-      - image: circleci/mariadb:10.1
+      - image: circleci/golang:1.12
     steps:
       - run: |
-          sudo apt-get update && sudo apt-get install -y mariadb-client
-          echo "Now test with SSH."
+          ls -lah ~
+          echo $PATH
+      - run: |
+          mkdir -p ~/bin && mkdir -p ~/.local/bin
+      - run: |
+          ls -lah ~
+          echo $PATH
