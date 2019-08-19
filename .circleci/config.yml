@@ -1,5 +1,10 @@
 version: 2.1
 
+parameters:
+  via-api:
+    type: string
+    default: ""
+
 workflows:
   main:
     jobs:
@@ -15,4 +20,3 @@ jobs:
           echo $PATH
       - run: |
           echo << pipeline.parameters.via-api >>
-          echo "Hi"
