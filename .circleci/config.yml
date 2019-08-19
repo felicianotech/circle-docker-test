@@ -8,9 +8,8 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.12
-      - image: ccistaging/mongo:4.1-bionic
     steps:
       - checkout
       - run:
           name: "Let's test things!!"
-          command: sudo apt-get update
+          command: echo $VIA_API
