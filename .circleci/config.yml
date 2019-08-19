@@ -14,4 +14,5 @@ jobs:
           ls -lah ~/
           echo $PATH
       - run: |
-          echo << pipeline.parameters.via-api >>
+        #echo << pipeline.parameters.via-api >>
+          echo "Hi"
