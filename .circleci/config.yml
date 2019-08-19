@@ -6,7 +6,7 @@ parameters:
     default: "0.1.0"
 
 orbs:
-  hugo: circleci/hugo:<< pipeline.parameters.hugo-version >>
+  hugo: circleci/hugo@<< pipeline.parameters.hugo-version >>
 
 workflows:
   main:
