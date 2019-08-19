@@ -1,9 +1,12 @@
 version: 2.1
 
 parameters:
-  via-api:
+  hugo-version:
     type: string
-    default: ""
+    default: "0.1.0"
+
+orbs:
+  hugo: circleci/hugo:<< pipeline.parameters.hugo-version >>
 
 workflows:
   main:
@@ -19,4 +22,4 @@ jobs:
           ls -lah ~/
           echo $PATH
       - run: |
-          echo << pipeline.parameters.via-api >>
+          echo "Hi"
