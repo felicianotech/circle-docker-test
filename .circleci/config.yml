@@ -11,7 +11,7 @@ jobs:
       - image: circleci/golang:1.12
     steps:
       - run: |
-          ls -lah ~
+          ls -lah ~/
           echo $PATH
       - run: |
           echo << pipeline.parameters.via-api >>
