@@ -8,13 +8,10 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.10
+      - image: circleci/golang:1.12
     steps:
       - run: |
           ls -lah ~
           echo $PATH
       - run: |
-          mkdir -p ~/bin && mkdir -p ~/.local/bin
-      - run: |
-          ls -lah ~
-          echo $PATH
+          echo $VIA_API
