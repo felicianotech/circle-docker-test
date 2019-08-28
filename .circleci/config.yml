@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-    python: circleci/python@0.1.5
+    python: circleci/python@0.1.6
 
 workflows:
   main:
