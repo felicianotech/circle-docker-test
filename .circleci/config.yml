@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-    php: circleci/php@0.1.2
+    python: circleci/python@0.1.0
 
 workflows:
   main:
@@ -11,11 +11,10 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/python:3
+      - image: circleci/golang:1.12
     #machine: true
     steps:
-      - run: sudo apt update && sudo apt install -y software-properties-common
-      - php/install
-      - run: php -v
-      - php/install-composer
-      - run: composer --version
+      - python/install
+      - run: |
+          python --version
+          pip --version
