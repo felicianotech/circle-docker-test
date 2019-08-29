@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-    python: circleci/python@0.1.8
+    python: circleci/python@0.1.9
 
 workflows:
   main:
@@ -16,4 +16,7 @@ jobs:
           python --version
           pip --version
       - run: echo "Django==1.3" > requirements.txt
+      - python/load-cache
+      - python/install-deps
       - python/save-cache
+      - run: ls -lah ~/.local/lib/
