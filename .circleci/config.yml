@@ -17,6 +17,7 @@ jobs:
           pip --version
       - run: echo "Django==1.3" > requirements.txt
       - python/load-cache
-      - python/install-deps
+      - python/install-deps:
+          local: false
       - python/save-cache
       - run: ls -lah ~/.local/lib/
