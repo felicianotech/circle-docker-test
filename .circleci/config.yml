@@ -7,9 +7,9 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.12
+      - image: circleci/golang:1.13
     steps:
       - checkout
       - run:
           name: "Let's test things!!"
-          command: echo $VIA_API
+          command: echo "Hey Folks!"
