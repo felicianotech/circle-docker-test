@@ -16,4 +16,4 @@ jobs:
           command: |
             sudo apt update && sudo apt install -f postgresql-client net-tools
             sudo netstat -plntu
-            psql -U postgres -c '\l'
+            psql -U postgres -h 127.0.0.1 -c '\l'
