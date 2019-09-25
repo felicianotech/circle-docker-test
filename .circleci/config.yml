@@ -8,8 +8,12 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.13
+      - image: circleci/postgres:10
     steps:
       - checkout
       - run:
           name: "Let's test things!!"
-          command: echo "Hey Folks!"
+          command: |
+            sudo apt update && sudo apt install -f postgresql-client net-tools
+            sudo netstat -plntu
+            psql -U postgres -c '\l'
