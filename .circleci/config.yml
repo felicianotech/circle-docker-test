@@ -14,6 +14,7 @@ jobs:
       - run:
           name: "Let's test things!!"
           command: |
-            sudo apt update && sudo apt install -f postgresql-client net-tools
-            sudo netstat -plntu
-            psql -U postgres -h 127.0.0.1 -c '\l'
+            docker --version
+          name: "Let's break things!!"
+          command: |
+            docker version
