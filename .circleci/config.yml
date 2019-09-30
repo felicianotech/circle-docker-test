@@ -15,6 +15,7 @@ jobs:
           name: "Let's test things!!"
           command: |
             docker --version
+      - run:
           name: "Let's break things!!"
           command: |
             docker version
