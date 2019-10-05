@@ -11,6 +11,7 @@ jobs:
     docker:
       - image: circleci/golang:1.12
     steps:
+      - checkout
       - run: |
           ls -lah ~/
           echo $PATH
