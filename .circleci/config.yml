@@ -3,17 +3,15 @@ version: 2.1
 workflows:
   main:
     jobs:
-      - build:
-          context: testing
+      - build
 
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.12
+      - image: circleci/golang:1.13
+      - image: circleci/mysql:5.7
     steps:
       - checkout
       - run: |
           ls -lah ~/
           echo $PATH
-      - run: |
-          echo $SCOPE_CHECK
