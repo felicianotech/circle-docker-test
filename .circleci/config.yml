@@ -13,4 +13,4 @@ jobs:
       - checkout
       - run: |
           echo "Testing"
-          \E[33mCongratulations!\E[0m
+          echo \E[33mCongratulations!\E[0m
