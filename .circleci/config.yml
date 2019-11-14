@@ -9,9 +9,8 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.13
-      - image: circleci/mysql@sha256:a0c894df6535a095c78f7b9e1d1c4ee3cc064eda39c5fe4f95b34c31e25a88ed
     steps:
       - checkout
       - run: |
-          ls -lah ~/
-          echo $PATH
+          echo "Testing"
+          \E[33mCongratulations!\E[0m
