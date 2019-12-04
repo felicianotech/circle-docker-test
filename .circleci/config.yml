@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  ruby: circleci/ruby@dev:install-fix
+  ruby: circleci/ruby@0.2.0
 
 workflows:
   main:
@@ -14,8 +14,6 @@ jobs:
       - image: cimg/base:2019.11
     steps:
       - ruby/install:
-          version: 2.5.3
+          version: 2.7.0-preview1
       - run: |
           ruby --version
-          which ruby
-          rvm --version
