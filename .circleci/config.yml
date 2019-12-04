@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  ruby: circleci/ruby@dev:gpg-fix
+  ruby: circleci/ruby@dev:0.2.1
 
 workflows:
   main:
