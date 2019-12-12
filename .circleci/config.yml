@@ -16,7 +16,7 @@ jobs:
     docker:
       - image: alpine:3.7
     steps:
-      - run: apk add -U git tar
+      - run: apk add -U git tar bash
       - theorb/remember:
           env_var: TEST_VAR
           value: 'HappyBirthday'
@@ -26,7 +26,7 @@ jobs:
     docker:
       - image: alpine:3.7
     steps:
-      - run: apk add -U git tar
+      - run: apk add -U git tar bash
       - theorb/recall:
           env_var: TEST_VAR
       - run: |
