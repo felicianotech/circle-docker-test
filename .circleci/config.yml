@@ -26,6 +26,7 @@ jobs:
     docker:
       - image: ubuntu:18.04
     steps:
+      - run: apt-get update && apt-get install -y git tar
       - theorb/recall:
           env_var: TEST_VAR
       - run: |
