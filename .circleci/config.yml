@@ -14,7 +14,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: ubuntu:18.04
+      - image: debian:9
     steps:
       - run: apt-get update && apt-get install -y git tar
       - theorb/remember:
@@ -24,7 +24,7 @@ jobs:
           echo $TEST_VAR
   build2:
     docker:
-      - image: ubuntu:18.04
+      - image: debian:9
     steps:
       - run: apt-get update && apt-get install -y git tar
       - theorb/recall:
