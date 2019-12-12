@@ -28,4 +28,4 @@ jobs:
       - theorb/recall:
           env_var: TEST_VAR
       - run: |
-          echo $TEST_VAR
+          echo ${TEST_VAR}
