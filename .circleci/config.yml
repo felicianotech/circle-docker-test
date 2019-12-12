@@ -17,12 +17,11 @@ jobs:
       - image: alpine:3.7
     steps:
       - run: apk add -U git tar bash
-      - run: which bash
       - theorb/remember:
           env_var: TEST_VAR
           value: 'HappyBirthday'
       - run:
-          shell: /usr/bin/bash
+          shell: /bin/bash
           command: |
             echo $TEST_VAR
   build2:
@@ -32,5 +31,7 @@ jobs:
       - run: apk add -U git tar bash
       - theorb/recall:
           env_var: TEST_VAR
-      - run: |
-          echo ${TEST_VAR}
+      - run:
+          shell: /bin/bash
+          command: |
+            echo $TEST_VAR
