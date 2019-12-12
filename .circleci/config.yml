@@ -14,9 +14,9 @@ workflows:
 jobs:
   build:
     docker:
-      - image: debian:9
+      - image: alpine:3.7
     steps:
-      - run: apt-get update && apt-get install -y git tar
+      - run: apk add -U git tar
       - theorb/remember:
           env_var: TEST_VAR
           value: 'HappyBirthday'
@@ -24,9 +24,9 @@ jobs:
           echo $TEST_VAR
   build2:
     docker:
-      - image: debian:9
+      - image: alpine:3.7
     steps:
-      - run: apt-get update && apt-get install -y git tar
+      - run: apk add -U git tar
       - theorb/recall:
           env_var: TEST_VAR
       - run: |
