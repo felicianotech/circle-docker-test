@@ -1,19 +1,31 @@
 version: 2.1
 
 orbs:
-  ruby: circleci/ruby@0.2.1
+  theorb: circleci/rememborb@0.0.1
 
 workflows:
   main:
     jobs:
       - build
+      - build2:
+          requires:
+            - build
 
 jobs:
   build:
     docker:
       - image: cimg/base:2019.11
     steps:
-      - ruby/install:
-          version: 2.7.0-preview3
+      - theorb/remember:
+          env_var: TEST_VAR
+          value: 'HappyBirthday'
       - run: |
-          ruby --version
+          echo $TEST_VAR
+  build2:
+    docker:
+      - image: cimg/base:2019.11
+    steps:
+      - theorb/recall:
+          env_var: TEST_VAR
+      - run: |
+          echo $TEST_VAR
