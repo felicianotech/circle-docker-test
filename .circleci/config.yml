@@ -17,11 +17,14 @@ jobs:
       - image: alpine:3.7
     steps:
       - run: apk add -U git tar bash
+      - run: which bash
       - theorb/remember:
           env_var: TEST_VAR
           value: 'HappyBirthday'
-      - run: |
-          echo $TEST_VAR
+      - run:
+          shell: /usr/bin/bash
+          command: |
+            echo $TEST_VAR
   build2:
     docker:
       - image: alpine:3.7
