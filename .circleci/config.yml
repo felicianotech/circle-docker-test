@@ -8,9 +8,9 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.13
+      - image: cimg/python:2.7
     steps:
       - checkout
       - run: |
           echo "Testing"
-          echo -e '\E[33mCongratulations!\E[0m'
+          pip install linode-cli
