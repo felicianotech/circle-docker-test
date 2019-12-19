@@ -13,6 +13,5 @@ jobs:
       - checkout
       - run: |
           python --version
-          which pip
           pip --version
           pip install linode-cli
