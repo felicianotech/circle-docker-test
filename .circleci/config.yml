@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - run: |
-          echo "Testing"
           python --version
+          which pip
           pip --version
           pip install linode-cli
