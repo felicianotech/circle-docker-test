@@ -9,6 +9,7 @@ jobs:
   build:
     docker:
       - image: cimg/openjdk:11.0
+      - image: redis:2.8
     steps:
       - checkout
       - run: |
