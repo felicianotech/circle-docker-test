@@ -7,4 +7,7 @@ jobs:
       - checkout
       - run:
           name: Do Anything Bundler Related
-          command: bundler -v
+          command: |
+            bundler -v
+            gem install bundler
+            bundler -v
