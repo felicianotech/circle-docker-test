@@ -1,16 +1,16 @@
-version: 2.0
-workflows:
-  version: 2
-  main:
-    jobs:
-      - build
+version: 2
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.13
+      - image: circleci/ruby:2.6.5
     steps:
       - checkout
       - run:
-          name: "Let's test things!!"
+          name: Force Bundler Version
           command: |
-            circleci version
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+      - run:
+          name: Do Anything Bundler Related
+          command: bundler -v
