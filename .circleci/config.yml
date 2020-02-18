@@ -10,8 +10,8 @@ jobs:
     docker:
       - image: cimg/base:stable
       - image: circleci/postgres:9.6.17
-          environment:
-            POSTGRES_HOST_AUTH_METHOD: trust
+        environment:
+          POSTGRES_HOST_AUTH_METHOD: trust
     steps:
       - checkout
       - run: |
