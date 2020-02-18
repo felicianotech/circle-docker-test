@@ -9,7 +9,7 @@ jobs:
   build:
     docker:
       - image: cimg/base:stable
-      - image: circleci/postgres:9.6.15
+      - image: circleci/postgres:9.6.17
     steps:
       - checkout
       - run: |
