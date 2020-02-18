@@ -22,7 +22,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: "Verify PostgreSQL Version"
-          command: PAGER=cat psql -d circle_test -U postgres -h 127.0.0.1 -c 'SELECT version();'
+          command: PAGER=cat psql -d circle_test -U turkey -h 127.0.0.1 -c 'SELECT version();'
       - run:
           name: "Try Creating a New Database"
           command: |
