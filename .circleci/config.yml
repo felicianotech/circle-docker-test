@@ -8,7 +8,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:stable
+      - image: circleci/golang:1.13
       - image: circleci/postgres:9.6.17
         environment:
           POSTGRES_USER: turkey
