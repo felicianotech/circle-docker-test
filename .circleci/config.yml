@@ -1,37 +1,17 @@
 version: 2.1
 
 orbs:
-  theorb: circleci/rememborb@0.0.1
+  jq: circleci/jq@2.0.1
 
 workflows:
   main:
     jobs:
       - build
-      - build2:
-          requires:
-            - build
 
 jobs:
   build:
     docker:
-      - image: alpine:3.7
+      - image: ubuntu:18.04
     steps:
-      - run: apk add -U git tar bash
-      - theorb/remember:
-          env_var: TEST_VAR
-          value: 'HappyBirthday'
-      - run:
-          shell: /bin/bash
-          command: |
-            echo $TEST_VAR
-  build2:
-    docker:
-      - image: alpine:3.7
-    steps:
-      - run: apk add -U git tar bash
-      - theorb/recall:
-          env_var: TEST_VAR
-      - run:
-          shell: /bin/bash
-          command: |
-            echo $TEST_VAR
+      - jq/install
+      - run: jq help
