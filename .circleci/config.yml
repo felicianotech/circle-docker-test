@@ -15,4 +15,4 @@ jobs:
     steps:
       - run: apt-get update && apt-get install -y curl
       - jq/install
-      - run: jq help
+      - run: jq --help
