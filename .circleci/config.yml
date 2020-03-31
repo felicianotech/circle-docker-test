@@ -16,5 +16,5 @@ jobs:
     steps:
       - checkout
       - run: |
-        # Fail on purpose.
-        exit 1
+          # Fail on purpose.
+          exit 1
