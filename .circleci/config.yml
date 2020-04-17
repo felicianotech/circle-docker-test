@@ -8,7 +8,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/python:3.4-stretch
+      - image: circleci/python:2.7-stretch
       - image: circleci/postgres:9.6.17
         environment:
           POSTGRES_USER: turkey
