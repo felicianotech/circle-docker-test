@@ -18,5 +18,6 @@ jobs:
       - run: |
           # Exit on purpose.
           exit 0
-      - run: |
           echo "Hi, does this still run?"
+      - run: |
+          echo "What about this?"
