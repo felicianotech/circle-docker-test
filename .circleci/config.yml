@@ -23,4 +23,4 @@ jobs:
           echo "What about this?"
           echo "Testing a PR and rerunning it. This is fine."
           sleep 5
-        echo "Fail on purpose" && exit 1
+          echo "Fail on purpose" && exit 1
