@@ -21,3 +21,4 @@ jobs:
           echo "Hi, does this still run?"
       - run: |
           echo "What about this?"
+          echo "Testing a PR and rerunning it. This is fine."
