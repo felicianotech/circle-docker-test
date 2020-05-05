@@ -13,7 +13,7 @@ jobs:
     docker:
       - image: ubuntu:18.04
     steps:
-      - run: apt-get update && apt-get install -y curl
+      #- run: apt-get update && apt-get install -y curl
       - hugo/install:
           version: "0.69"
       - run: hugo version
