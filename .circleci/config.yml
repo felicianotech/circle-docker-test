@@ -15,5 +15,5 @@ jobs:
     steps:
       - run: apt-get update && apt-get install -y curl
       - hugo/install:
-          version: "0.69.2"
+          version: "0.69.1"
       - run: hugo version
