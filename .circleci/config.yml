@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  jq: circleci/jq@2.0.1
+  hugo: circleci/hugo@dev:ricardo-test
 
 workflows:
   main:
@@ -14,5 +14,6 @@ jobs:
       - image: ubuntu:18.04
     steps:
       - run: apt-get update && apt-get install -y curl
-      - jq/install
-      - run: jq --help
+      - hugo/install:
+          version: "0.69"
+      - run: hugo version
