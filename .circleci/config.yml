@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   hugo: circleci/hugo@dev:ricardo-test
+  jq: circleci/jq@2.0
 
 workflows:
   main:
@@ -17,3 +18,5 @@ jobs:
       - hugo/install:
           version: "0.69.2"
       - run: hugo version
+      - jq/install
+      - run: jq --version
