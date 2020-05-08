@@ -18,5 +18,6 @@ jobs:
       - hugo/install:
           version: "0.69.2"
       - run: hugo version
-      - jq/install
+      - jq/install:
+          override: true
       - run: jq --version
