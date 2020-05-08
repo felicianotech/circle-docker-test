@@ -18,6 +18,7 @@ jobs:
       - hugo/install:
           version: "0.69.2"
       - run: hugo version
+      - run: apt-get update && apt-get install -y jq
       - jq/install:
           override: true
       - run: jq --version
