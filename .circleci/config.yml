@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  hugo: circleci/hugo@dev:ricardo-test
+  hugo: circleci/hugo@0.5
   jq: circleci/jq@2.0
 
 workflows:
@@ -11,13 +11,9 @@ workflows:
 
 jobs:
   build:
-    docker:
-      - image: ubuntu:18.04
+    executor:
+      name: hugo/cibuilds
+    environment:
+      WORD: Hi
     steps:
-      - run: apt-get update && apt-get install -y curl
-      - hugo/install:
-          version: "0.69.2"
-      - run: hugo version
-      - run: apt-get update && apt-get install -y jq
-      - jq/install
-      - run: jq --version
+      - run: echo $WORD
