@@ -13,4 +13,5 @@ jobs:
       - checkout
       - run: |
           sudo apt-get update && sudo apt-get install postgresql-client
-          sudo apt update
+          #sudo apt update
+          ls -lah /etc/apt/sources.list.d/
