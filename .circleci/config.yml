@@ -8,7 +8,7 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-1604:canary
+      image: ubuntu-1604:202004-01
     steps:
       - checkout
       - run: |
