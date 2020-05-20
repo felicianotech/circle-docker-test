@@ -15,7 +15,8 @@ jobs:
           POSTGRES_PASSWORD: chicken9
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+          version: 19.03.8
       - run: docker version
       - run: |
           # Exit on purpose.
