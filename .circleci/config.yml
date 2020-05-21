@@ -1,26 +1,18 @@
 version: 2.1
-
 workflows:
   main:
     jobs:
       - build
-
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.13
-      - image: circleci/postgres:9.6.17
-        environment:
-          POSTGRES_USER: turkey
-          POSTGRES_PASSWORD: chicken9
+      - image: cimg/base:stable
     steps:
       - checkout
       - setup_remote_docker:
           version: 19.03.8
-      - run: docker version
-      - run: |
-          # Exit on purpose.
-          exit 0
-          echo "Hi, does this still run??"
-      - run: |
-          echo "What about this?"
+      - run:
+          name: "Do all the things!"
+          command: |
+            docker build -t my-org/my-image .
+            docker push my-org/my-image
