@@ -12,7 +12,7 @@ jobs:
       - setup_remote_docker:
           version: 18.06.0-ce
       - run:
-          name: "Do all the things!"
+          name: "Do all the things!!"
           command: |
             docker version
             docker build -t my-org/my-image .
