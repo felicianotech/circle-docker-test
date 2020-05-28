@@ -6,7 +6,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.14
+      - image: cimg/base
     steps:
       - checkout
       - setup_remote_docker:
@@ -16,4 +16,3 @@ jobs:
           command: |
             docker version
             docker build -t my-org/my-image .
-            docker push my-org/my-image
