@@ -1,18 +1,29 @@
 version: 2.1
-workflows:
-  main:
-    jobs:
-      - build
 jobs:
-  build:
+  one:
     docker:
-      - image: cimg/base
+      - image: 'cimg/base:2020.05'
     steps:
-      - checkout
-      - setup_remote_docker:
-          version: 18.06.0-ce
       - run:
-          name: "Do all the things!!"
-          command: |
-            docker version
-            docker build -t my-org/my-image .
+          command: echo "Hello"
+  evaluate-master:
+    docker:
+      - image: 'cimg/base:2020.05'
+    steps:
+      - run:
+          command: echo "World"
+      - run:
+          command: echo "Heal it"
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - one
+      - evaluate-master:
+          requires:
+            - one
+          filters:
+            branches:
+              only: master
+
+
