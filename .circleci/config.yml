@@ -13,5 +13,5 @@ jobs:
       - checkout
       - run: |
           sudo apt-get update && sudo apt-get install postgresql-client
-          ls -lah /etc/apt/sources.list.d/
-          sudo apt update
+          # Test download Go with cURL
+          curl -sSL "https://golang.org/dl/go1.14.4.linux-amd64.tar.gz" | sudo tar -xz -C /usr/local/
