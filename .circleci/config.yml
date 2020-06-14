@@ -13,5 +13,5 @@ jobs:
       - checkout
       - run: |
           ldd --version
-          sudo apt-get update && sudo apt-get upgrade -y
-          ldd --version
+          curl -sSL "https://github.com/gothamhq/gotham/releases/download/v0.1.0/gotham-v0.1.0-linux-amd64.tar.gz" | tar -xz -C /usr/local/bin gotham
+          gotham version
