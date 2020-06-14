@@ -13,3 +13,5 @@ jobs:
       - checkout
       - run: |
           ldd --version
+          sudo apt-get update && sudo apt-get upgrade -y
+          ldd --version
