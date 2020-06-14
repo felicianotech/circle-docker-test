@@ -15,3 +15,4 @@ jobs:
           ldd --version
           curl -sSL "https://github.com/gothamhq/gotham/releases/download/v0.1.0/gotham-v0.1.0-linux-amd64.tar.gz" | sudo tar -xz -C /usr/local/bin gotham
           gotham version
+          ldd /usr/local/bin/gotham
