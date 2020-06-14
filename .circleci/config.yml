@@ -12,8 +12,4 @@ jobs:
     steps:
       - checkout
       - run: |
-          sudo apt-get update && sudo apt-get install postgresql-client
-          # Test download Go with cURL
-          curl -sSL "https://golang.org/dl/go1.14.4.linux-amd64.tar.gz" | sudo tar -xz -C /usr/local/
-          sudo apt-get update && sudo apt-get upgrade -y
-          curl https://keybase.io/hashicorp/pgp_keys.asc
+          ldd --version
