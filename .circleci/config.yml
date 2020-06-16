@@ -13,7 +13,7 @@ jobs:
           name: "Do all the things!!"
           command: |
             sudo groupadd bumpty
-            sudo usermod -aG bumpty $USER
+            sudo usermod -aG bumpty circleci
             groups
             newgrp bumpty
             groups
