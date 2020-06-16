@@ -6,14 +6,16 @@ workflows:
 jobs:
   build:
     docker:
-      - image: ccitest/golang:1.14
+      - image: cimg/base:stable
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 18.06.0-ce
       - run:
           name: "Do all the things!!"
           command: |
-            docker version
-            docker build -t my-org/my-image .
-            docker push my-org/my-image
+            sudo addgroup bumpty
+            sudo adduser circleci bumpty
+            groups
+      - run:
+          name: "Do all the things!!"
+          command: |
+            groups
