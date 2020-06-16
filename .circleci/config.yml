@@ -12,8 +12,8 @@ jobs:
       - run:
           name: "Do all the things!!"
           command: |
-            sudo addgroup bumpty
-            sudo adduser circleci bumpty
+            sudo groupadd bumpty
+            sudo usermod -aG bumpty $USER
             groups
       - run:
           name: "Do all the things!!"
