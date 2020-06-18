@@ -15,4 +15,6 @@ jobs:
     steps:
       - ruby/install:
           version: "2.7.0"
-      - run: ruby --version
+      - run:
+          name: "Check version"
+          command: ruby --version
