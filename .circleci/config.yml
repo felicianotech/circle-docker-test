@@ -18,4 +18,4 @@ jobs:
       - hugo/install:
           version: "0.55.6"
       - run: hugo version
-      - run: hugo new site
+      - run: echo $PATH
