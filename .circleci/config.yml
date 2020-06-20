@@ -19,3 +19,6 @@ jobs:
           version: "0.55.6"
       - run: hugo version
       - run: echo $PATH
+      - run: |
+          export PATH=$HOME/bin:$PATH
+          echo $PATH
