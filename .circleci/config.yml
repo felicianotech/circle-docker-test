@@ -18,15 +18,15 @@ jobs:
       - hugo/install:
           version: "0.55.6"
       - run: hugo version
-      - run: echo $PATH
       - run: |
           if [[ ":$PATH:" == *":$HOME/bin:"* ]]; then
             echo "Your path is correctly set"
           else
             echo "Your path is missing ~/bin, you might want to add it."
           fi
-          export PATH=$HOME/bin:$PATH
-          echo $PATH
+      - run: |
+          echo "export PATH=$HOME/bin:$PATH" >> $BASH_ENV
+      - run: |
           if [[ ":$PATH:" == *":$HOME/bin:"* ]]; then
             echo "Your path is correctly set"
           else
