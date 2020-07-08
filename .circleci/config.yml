@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  ruby: circleci/ruby@1.0
+  cli: circleci/circleci-cli@0.1
 
 workflows:
   main:
@@ -13,8 +13,7 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - ruby/install:
-          version: "2.7.0"
+      - cli/install
       - run:
           name: "Check version"
-          command: ruby --version
+          command: circleci version
