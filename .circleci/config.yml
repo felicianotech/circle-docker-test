@@ -8,12 +8,9 @@ workflows:
 jobs:
   build:
     machine:
-      #image: ubuntu-2004:202008-01
-      image: ubuntu-1604:202007-01
+      image: ubuntu-2004:canary
     steps:
       - checkout
-      - run: |
-          echo "export PATH=$PATH:/snap/bin" >> $BASH_ENV
       - run: |
           sudo snap install sonar
       - run: |
