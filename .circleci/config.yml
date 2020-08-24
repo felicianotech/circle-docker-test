@@ -13,5 +13,6 @@ jobs:
       - checkout
       - run: |
           echo "PATH=$PATH:/snap/bin" >> $BASH_ENV
+      - run: |
           sudo snap install gotham
           gotham version
