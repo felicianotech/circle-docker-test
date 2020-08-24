@@ -21,5 +21,5 @@ jobs:
           ls -lah /snap/bin
           cat $BASH_ENV
           uname -a
-          sonar version
+          snap run sonar version
           gotham version
