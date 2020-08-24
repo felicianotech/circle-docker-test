@@ -17,8 +17,6 @@ jobs:
       - run: |
           sudo snap install sonar
       - run: |
-          ls -lah /snap/bin
-          cat $BASH_ENV
+          echo $PATH
           snap run sonar version
-          /snap/bin/sonar version
           sonar version
