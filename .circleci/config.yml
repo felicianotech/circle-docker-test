@@ -20,3 +20,4 @@ jobs:
           ls -lah /snap/bin
           cat $BASH_ENV
           snap run sonar version
+          /snap/bin/sonar version
