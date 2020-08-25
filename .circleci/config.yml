@@ -16,5 +16,5 @@ jobs:
       - run: |
           echo $PATH
           cat /etc/environment
-          snap run sonar version --short
+          snap run sonar version
           sonar version
