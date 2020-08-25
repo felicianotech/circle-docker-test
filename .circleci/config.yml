@@ -16,5 +16,8 @@ jobs:
       - run: |
           echo $PATH
           cat /etc/environment
+          echo "============================"
+          cat ~/.bashrc
+          echo "============================"
           snap run sonar version
           sonar version
