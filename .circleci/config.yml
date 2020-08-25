@@ -15,7 +15,6 @@ jobs:
           sudo snap install sonar
       - run: |
           echo $PATH
-          cat /etc/environment
           echo "============================"
           cat ~/.bashrc
           echo "============================"
