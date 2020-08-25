@@ -15,5 +15,5 @@ jobs:
           sudo snap install sonar
       - run: |
           echo $PATH
-          snap run sonar version
+          snap run sonar version --short
           sonar version
