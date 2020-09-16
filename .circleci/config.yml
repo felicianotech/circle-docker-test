@@ -11,7 +11,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/go:1.14.1
     steps:
       - s3/sync:
           arguments: |
