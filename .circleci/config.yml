@@ -13,10 +13,6 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - cli/install
-      - run:
-          name: "Check version"
-          command: circleci version
       - aws-s3/sync:
           arguments: |
             --acl public-read \
