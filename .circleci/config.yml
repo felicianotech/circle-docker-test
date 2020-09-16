@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  cli: circleci/circleci-cli@0.1
+  s3: circleci/aws-s3@1.1.0
 
 workflows:
   main:
@@ -17,3 +17,9 @@ jobs:
       - run:
           name: "Check version"
           command: circleci version
+      - aws-s3/sync:
+          arguments: |
+            --acl public-read \
+            --cache-control "max-age=86400"
+          from: bucket
+          to: 's3://my-s3-bucket-name/prefix'
