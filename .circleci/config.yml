@@ -9,6 +9,8 @@ jobs:
       - image: cimg/go:1.14.9
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 19.03.12
       - run:
           name: "Do all the things!!"
           command: |
