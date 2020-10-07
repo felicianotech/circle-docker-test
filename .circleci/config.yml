@@ -12,9 +12,5 @@ jobs:
     steps:
       - checkout
       - run: |
-          sudo snap install sonar
-      - run: |
-          snap run sonar version
-          sonar version
           docker --version
           docker-compose --version
