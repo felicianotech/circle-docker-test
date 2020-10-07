@@ -8,7 +8,7 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-2004:canary
+      image: ubuntu-1604:canary
     steps:
       - checkout
       - run: |
@@ -16,3 +16,5 @@ jobs:
       - run: |
           snap run sonar version
           sonar version
+          docker --version
+          docker-compose --version
