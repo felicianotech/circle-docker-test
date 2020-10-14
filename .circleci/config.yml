@@ -13,5 +13,5 @@ jobs:
       - run: |
           docker --version
           docker-compose --version
-          cat /etc/-os-release
+          cat /etc/os-release
           uname -a
