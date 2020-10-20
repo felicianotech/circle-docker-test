@@ -12,6 +12,7 @@ jobs:
     steps:
       - checkout
       - run: |
+          ldd --version
           docker --version
           docker-compose --version
           cat /etc/os-release
