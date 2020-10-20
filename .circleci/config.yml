@@ -19,6 +19,6 @@ jobs:
           aws --version
           gradle --version
           heroku --version
-          maven --version
+          mvn --version
           leiningen --version
           sbt --version
