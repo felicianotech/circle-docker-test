@@ -17,3 +17,4 @@ jobs:
           cat /etc/os-release
           uname -a
           aws --version
+          gradle --version
