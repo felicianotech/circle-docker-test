@@ -20,5 +20,6 @@ jobs:
           gradle --version
           heroku --version
           mvn --version
-          leiningen --version
+          java -version || java --version
           sbt --version
+          lein --version
