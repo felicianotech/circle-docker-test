@@ -18,3 +18,7 @@ jobs:
           uname -a
           aws --version
           gradle --version
+          heroku --version
+          maven --version
+          leiningen --version
+          sbt --version
