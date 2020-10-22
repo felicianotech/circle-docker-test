@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  s3: circleci/aws-s3@1.1.0
+  gcp: circleci/gcp-cli@1.8
 
 workflows:
   main:
@@ -10,12 +10,9 @@ workflows:
 
 jobs:
   build:
-    docker:
-      - image: cimg/go:1.14.1
+    machine:
+      image: ubuntu-2004:202010-01
     steps:
-      - s3/sync:
-          arguments: |
-            --acl public-read \
-            --cache-control "max-age=86400"
-          from: bucket
-          to: 's3://my-s3-bucket-name/prefix'
+      - run: gcloud version
+      - gcp/install
+      - run: gcloud version
