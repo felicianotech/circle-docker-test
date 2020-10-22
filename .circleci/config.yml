@@ -8,9 +8,12 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202010-01
+      image: ubuntu-1604:202010-01
     steps:
       - checkout
+      - run: gcloud version
+      - run: echo "export PATH=$PATH:$PWD" >> $BASH_ENV
+      - run: gcloud version
       - run: |
           ldd --version
           docker --version
