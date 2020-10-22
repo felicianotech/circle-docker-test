@@ -11,9 +11,8 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-1604:202010-01
+      image: ubuntu-1604:202007-01
     steps:
       - run: gcloud version
       - gcp/install
-      - gcp/initialize
       - run: gcloud version
