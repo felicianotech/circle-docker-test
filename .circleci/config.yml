@@ -8,24 +8,7 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-1604:202010-01
+      image: ubuntu-2004:202010-01
     steps:
       - checkout
-      - run: gcloud version
-      - run: echo "export PATH=$PATH:$PWD" >> $BASH_ENV
-      - run: gcloud version
-      - run: |
-          ldd --version
-          docker --version
-          docker-compose --version
-          cat /etc/os-release
-          uname -a
-          aws --version
-          gradle --version
-          heroku --version
-          mvn --version
-          java -version || java --version
-          snapcraft --version
-          sbt --version
-          lein --version
-          gcloud version
+      - run: sudo apt-get update && sudo apt-get install -y patchelf desktop-file-utils
