@@ -6,13 +6,10 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/go:1.14.9
+      - image: felicianotech/test:latest
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 19.03.12
       - run:
           name: "Do all the things!!"
           command: |
-            python3 --version
-            python --version
+            ps aux | grep -i Xvfb
