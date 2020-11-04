@@ -13,3 +13,5 @@ jobs:
           name: "Do all the things!"
           command: |
             ps aux | grep -i Xvfb
+            echo "====================================="
+            echo $DISPLAY
