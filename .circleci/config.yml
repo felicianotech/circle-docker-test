@@ -10,6 +10,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Do all the things!!"
+          name: "Do all the things!"
           command: |
             ps aux | grep -i Xvfb
