@@ -6,12 +6,10 @@ workflows:
 jobs:
   build:
     docker:
-      - image: felicianotech/test:4
+      - image: circleci/ruby:2.6.5-stretch-node-browsers
     steps:
       - checkout
       - run:
           name: "Do all the things!"
           command: |
-            ps aux | grep -i Xvfb
-            echo "====================================="
-            cat /docker-entrypoint.sh
+            sudo apt-get update
