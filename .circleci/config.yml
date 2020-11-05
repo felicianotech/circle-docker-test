@@ -14,4 +14,4 @@ jobs:
           command: |
             ps aux | grep -i Xvfb
             echo "====================================="
-            echo $DISPLAY
+            cat /docker-entrypoint.sh
