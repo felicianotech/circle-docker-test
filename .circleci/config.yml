@@ -6,10 +6,10 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/go:1.15-browsers
+      - image: cimg/node:12.19.0-browsers
     steps:
       - checkout
       - run:
           name: "Do all the things!"
           command: |
-            sudo apt-get update
+            echo $SHELL
