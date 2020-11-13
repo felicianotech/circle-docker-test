@@ -6,7 +6,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/go:1.15-browsers
+      - image: cimg/go:1.15
     steps:
       - checkout
       - run:
