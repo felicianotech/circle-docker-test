@@ -11,8 +11,6 @@ jobs:
       - checkout
       - run: ls -lah /bin/sh
       - run: apk add bash
-      - run: ls -lah /bin/sh
-      - run: ln -s /bin/sh bash
-      - run: which bash
+      - run: ln -s /bin/sh /bin/bash
       - run: echo "CHICKEN=you" >> $BASH_ENV
       - run: echo $CHICKEN
