@@ -13,3 +13,4 @@ jobs:
           name: "Do all the things!"
           command: |
             echo $SHELL
+            echo $BASH_ENV
