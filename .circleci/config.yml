@@ -6,8 +6,9 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:2020.12
+      - image: alpine:3.7
     steps:
       - checkout
+      - run: apk add bash
       - run: echo "CHICKEN=you" >> $BASH_ENV
       - run: echo $CHICKEN
