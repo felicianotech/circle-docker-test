@@ -6,11 +6,8 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/go:1.13
+      - image: alpine:3.7
     steps:
       - checkout
-      - run:
-          name: "Do all the things!"
-          command: |
-            echo $SHELL
-            echo $BASH_ENV
+      - run: echo "CHICKEN=you" >> $BASH_ENV
+      - run: echo $CHICKEN
