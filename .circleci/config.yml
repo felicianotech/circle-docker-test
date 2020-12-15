@@ -13,5 +13,5 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Test is cuda is available."
+          name: "Test is cuda is available.."
           command: nvidia-smi
