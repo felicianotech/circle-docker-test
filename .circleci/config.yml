@@ -8,7 +8,7 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202010-01
+      image: ubuntu-1604-cuda-10.1:201909-23
     steps:
       - checkout
-      - run: sudo apt install --allow-downgrades --allow-remove-essential --allow-change-held-packages python3-pip python3-setuptools patchelf desktop-file-utils libgdk-pixbuf2.0-dev fakeroot
+      - run: nvidia-smi
