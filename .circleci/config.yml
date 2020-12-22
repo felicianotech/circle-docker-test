@@ -16,4 +16,4 @@ jobs:
           name: "Test is cuda is available.."
           command: nvidia-smi
       - run: docker version
-      - run: dpkg -l nvidia-docker2
+      - run: dpkg -l nvidia-docker
