@@ -15,3 +15,4 @@ jobs:
       - run:
           name: "Test is cuda is available.."
           command: nvidia-smi
+      - run: docker version
