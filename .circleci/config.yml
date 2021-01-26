@@ -8,10 +8,13 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-1604:canary
+      #image: ubuntu-1604:canary
       #image: ubuntu-2004:202010-01 
+      image: ubuntu-2004:202011-01
+    resource_class: arm.medium
     steps:
       - checkout
       - run: |
           go version
+          jq --version
           ls -lah /usr/local/bin/circleci-install
