@@ -21,4 +21,4 @@ jobs:
           docker --version
           #snapcraft --version
           node --version
-          java --version
+          java -version
