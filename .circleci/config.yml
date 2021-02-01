@@ -19,6 +19,6 @@ jobs:
           go version
           jq --version
           docker --version
-          snapcraft --version
+          #snapcraft --version
           node --version
           java --version
