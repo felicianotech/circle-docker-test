@@ -17,4 +17,3 @@ jobs:
       - run: |
           go version
           jq --version
-          ls -lah /usr/local/bin/circleci-install
