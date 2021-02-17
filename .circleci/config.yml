@@ -8,11 +8,9 @@ workflows:
 jobs:
   build:
     machine:
-      #image: ubuntu-1604:canary
-      #image: ubuntu-2004:202010-01 
-      #image: ubuntu-2004:202101-01
       #image: ubuntu-1604:202101-01
-      image: android:202102-01
+      #image: android:202102-01
+      image: android:canary
     #resource_class: arm.medium
     steps:
       - checkout
@@ -20,9 +18,7 @@ jobs:
           echo $JAVA_HOME
           which javac
           which java
-          go version
           jq --version
           docker --version
-          #snapcraft --version
           node --version
           java -version
