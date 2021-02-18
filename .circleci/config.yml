@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  n: circleci/node@dev:alpha
+  n: circleci/node@dev:e3955d5
 
 workflows:
   main:
