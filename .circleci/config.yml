@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  gcp: circleci/gcp-cli@1.8
+  n: circleci/node@4.1
 
 workflows:
   main:
@@ -11,8 +11,9 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-1604:202007-01
+      image: ubuntu-2004:202101-01
     steps:
       - run: gcloud version
-      - gcp/install
-      - run: gcloud version
+      - run: node --version
+      - n/install
+      - run: node --version
