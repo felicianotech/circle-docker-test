@@ -9,7 +9,7 @@ jobs:
   build:
     machine:
       resource_class: gpu.nvidia.small
-      image: ubuntu-1604-cuda-10.2:202012-01
+      image: ubuntu-1604-cuda-10.1:202012-01
     steps:
       - checkout
       - run:
@@ -17,3 +17,4 @@ jobs:
           command: nvidia-smi
       - run: docker version
       - run: dpkg -l nvidia-container-toolkit
+      - run: nvcc --version
