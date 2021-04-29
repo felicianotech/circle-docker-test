@@ -16,6 +16,8 @@ jobs:
           echo $JAVA_HOME
           which javac
           which java
+          aws --version
+          yq --version
           go version
           jq --version
           docker --version
