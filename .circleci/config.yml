@@ -20,5 +20,5 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y postgresql-client
           echo "=== 2 ====================="
-          psql -X -A -U postgres -h localhost -p 5432 -t -c "\l"
+          psql -X -A -U postgres -h localhost -p 5432 -t -f test.sql
           echo "=== 3 ====================="
