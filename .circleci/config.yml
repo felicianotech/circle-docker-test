@@ -7,21 +7,15 @@ workflows:
 
 jobs:
   build:
-    machine:
-      image: ubuntu-2004:202104-01
-      #image: ubuntu-1604:202104-01
+    docker:
+      - image: cimg/base:2021.04
+      - image: circleci/postgres:9.6
+        environment:
+          POSTGRES_USER: postgres
     steps:
       - checkout
       - run: |
-          echo $JAVA_HOME
-          which javac
-          which java
-          aws --version
-          yq --version
-          go version
-          jq --version
-          docker --version
-          node --version
-          java -version
-          cat /etc/os-release
+          echo "hi"
           sudo apt-get update
+          sudo apt-get install -y postgresql-client
+          psql -U postgres -c "\l"
