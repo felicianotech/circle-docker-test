@@ -20,4 +20,4 @@ jobs:
           name: "Do all the things!"
           command: |
             sudo apt-get update && sudo apt-get install -y postgresql-client-common
-            PGPASSWORD=Apple psql -h localhost -p 5432 -c "\l"
+            psql postgresql://root:Apple@127.0.0.1:5433/?sslmode=disable
