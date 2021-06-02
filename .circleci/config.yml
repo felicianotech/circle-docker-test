@@ -10,7 +10,7 @@ jobs:
         environment:
           POSTGRES_USER: root
           PGDATABASE: circle_test
-      - image: circleci/postgres:13.2
+      - image: felicianotech/postgres:dev3
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: circle_test
