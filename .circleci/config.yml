@@ -19,6 +19,6 @@ jobs:
       - run:
           name: "Do all the things!"
           command: |
-            sudo apt-get update && sudo apt-get install -y postgresql-contrib
+            sudo apt-get update && sudo apt-get install -y postgresql-client
             sleep 1
             psql postgresql://root:Apple@127.0.0.1:5432/?sslmode=disable
