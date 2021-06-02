@@ -8,9 +8,11 @@ jobs:
     docker:
       - image: cimg/node:16.0
       - image: circleci/postgres:13.2
+        environment:
+          POSTGRES_PASSWORD: Apple
     steps:
       - checkout
       - run:
           name: "Do all the things!"
           command: |
-            psql -h localhost -p 5432 -U root -c "\l"
+            psql -h localhost -p 5432 -U root -P Apple -c "\l"
