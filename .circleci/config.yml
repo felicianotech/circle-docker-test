@@ -9,6 +9,7 @@ jobs:
       - image: cimg/node:16.0
         environment:
           POSTGRES_USER: root
+          PGDATABASE: circle_test
       - image: circleci/postgres:13.2
         environment:
           POSTGRES_USER: root
