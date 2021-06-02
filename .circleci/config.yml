@@ -7,12 +7,10 @@ jobs:
   build:
     docker:
       - image: cimg/node:16.0
+      - image: circleci/postgres:13.2
     steps:
       - checkout
       - run:
           name: "Do all the things!"
           command: |
-            echo $SHELL
-            echo $BASH_ENV
-            yarn global add electron
-            electron --version
+            psql -h localhost -p 5432 -U root -c "\l"
