@@ -1,4 +1,5 @@
 version: 2.1
+
 workflows:
   main:
     jobs:
@@ -6,13 +7,12 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/node:16.0
+      - image: cimg/node:1.16
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 20.10.6
       - run:
           name: "Do all the things!"
           command: |
-            echo $SHELL
-            echo $BASH_ENV
-            yarn global add electron
-            electron --version
+            docker version
