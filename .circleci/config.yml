@@ -6,13 +6,10 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/node:16.0
+      - image: cimg/android:priceline
     steps:
       - checkout
       - run:
           name: "Do all the things!"
           command: |
-            echo $SHELL
-            echo $BASH_ENV
-            yarn global add electron
-            electron --version
+            gcloud --version
