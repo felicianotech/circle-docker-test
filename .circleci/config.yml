@@ -8,9 +8,8 @@ workflows:
 jobs:
   build:
     machine:
-      #image: ubuntu-1604:202101-01
-      #image: android:202102-01
-      image: android:canary
+      image: android:202102-01
+      #image: android:canary
     #resource_class: arm.medium
     steps:
       - checkout
@@ -22,3 +21,4 @@ jobs:
           docker --version
           node --version
           java -version
+          gcloud --version
