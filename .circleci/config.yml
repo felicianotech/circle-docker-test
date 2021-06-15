@@ -25,3 +25,7 @@ jobs:
           java -version
           cat /etc/os-release
           sudo apt-get update
+          echo "================================================="
+          ls -lah /usr/local | grep -i "go"
+          echo "================================================="
+          ls -lah /usr/local/go
